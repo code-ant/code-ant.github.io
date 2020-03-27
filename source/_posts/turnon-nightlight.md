@@ -5,7 +5,7 @@ categories: [奇淫技巧]
 tags: [Linux, Ubuntu, CLI]
 ---
 
-### 使用命令行打开Ubuntu的Night Mode
+> 使用命令行打开Ubuntu的Night Mode
 
 - Ubuntu上的护眼模式（Night Light）
 
