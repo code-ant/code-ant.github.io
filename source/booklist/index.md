@@ -21,7 +21,7 @@ type: booklist
 
   《三体》、《富爸爸穷爸爸》2/4
 
-  《天幕红尘》![](https://progress-bar.dev/41/?scale=100&title=reading&width=500)
+  《天幕红尘》![](https://progress-bar.dev/78/?scale=100&title=reading&width=500)
 
 ### 想读 · · · (3本)
 
