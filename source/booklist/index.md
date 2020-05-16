@@ -32,7 +32,7 @@ type: booklist
 
   《富爸爸穷爸爸》
 
-### 已读 · · · (0本)
+### 已读 · · · (3本)
 
 1. 《富爸爸穷爸爸》 1/4![](https://progress-bar.dev/100/?scale=100&title=done&width=500)
 2. 《遥远的救世主》![](https://progress-bar.dev/100/?scale=100&title=done&width=500)
