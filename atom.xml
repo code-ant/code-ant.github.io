@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-21T17:31:06.769Z</updated>
+  <updated>2020-08-21T17:51:46.743Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>乐观锁与悲观锁</title>
+    <link href="http://yoursite.com/2020/08/22/%E9%94%81/"/>
+    <id>http://yoursite.com/2020/08/22/%E9%94%81/</id>
+    <published>2020-08-21T17:41:28.000Z</published>
+    <updated>2020-08-21T17:51:46.743Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="什么是乐观锁与悲观锁"><a href="#什么是乐观锁与悲观锁" class="headerlink" title="什么是乐观锁与悲观锁"></a>什么是乐观锁与悲观锁</h3><blockquote><p>乐观锁和悲观锁、见名知意，乐观锁设计的出发点是程序总是能够按照正确的，没有异常的情况发展；悲观锁的设计出发点是程序运行时总是会遇到异常。</p></blockquote><a id="more"></a><h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><p>总是假设最好的情况，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号机制和CAS算法实现。<strong>乐观锁适用于多读的应用类型，这样可以提高吞吐量</strong>，像数据库提供的类似于<strong>write_condition机制</strong>，其实都是提供的乐观锁。在Java中<code>java.util.concurrent.atomic</code>包下面的原子变量类就是使用了乐观锁的一种实现方式<strong>CAS</strong>实现的。</p><h4 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h4><p>总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞，直到它拿到锁（<strong>共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程</strong>）。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。Java中<code>synchronized</code>和<code>ReentrantLock</code>等独占锁就是悲观锁思想的实现。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;什么是乐观锁与悲观锁&quot;&gt;&lt;a href=&quot;#什么是乐观锁与悲观锁&quot; class=&quot;headerlink&quot; title=&quot;什么是乐观锁与悲观锁&quot;&gt;&lt;/a&gt;什么是乐观锁与悲观锁&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;乐观锁和悲观锁、见名知意，乐观锁设计的出发点是程序总是能够按照正确的，没有异常的情况发展；悲观锁的设计出发点是程序运行时总是会遇到异常。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="并发" scheme="http://yoursite.com/categories/%E5%B9%B6%E5%8F%91/"/>
+    
+    
+      <category term="并发" scheme="http://yoursite.com/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+      <category term="锁" scheme="http://yoursite.com/tags/%E9%94%81/"/>
+    
+  </entry>
   
   <entry>
     <title>二叉树</title>
