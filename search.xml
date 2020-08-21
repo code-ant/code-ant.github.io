@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>二叉树</title>
+    <url>/2020/08/21/binary-tree/</url>
+    <content><![CDATA[<p>数据结构总结——二叉树</p>
+<p>总结常见的二叉树相关的算法以及代码实现</p>
+<a id="more"></a>
+
+<p><strong>二叉树定义</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><ul>
+<li>递归</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归方法(同理可得中序遍历和后序遍历的递归方法)</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">        result.add(root.val);</span><br><span class="line">        preorderTraversal(root.left);</span><br><span class="line">        preorderTraversal(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>迭代</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//迭代方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title">preOrderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    LinkedList&lt;Integer&gt; result = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stack.push(root);</span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty())&#123;</span><br><span class="line">        TreeNode temp = stack.pop();</span><br><span class="line">        result.add(temp.val);</span><br><span class="line">        <span class="keyword">if</span>(temp.right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            stack.push(temp.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(temp.left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            stack.push(temp.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">        inorderTraversal(root.left);</span><br><span class="line">        result.add(root.val);</span><br><span class="line">        inorderTraversal(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//迭代方法同前序遍历</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">        postorderTraversal(root.left);</span><br><span class="line">        postorderTraversal(root.right);</span><br><span class="line">        result.add(root.val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代方法同前序遍历</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><h3 id="计算树的高度"><a href="#计算树的高度" class="headerlink" title="计算树的高度"></a>计算树的高度</h3><h3 id="计算树的直径"><a href="#计算树的直径" class="headerlink" title="计算树的直径"></a>计算树的直径</h3><h3 id="镜像二叉树"><a href="#镜像二叉树" class="headerlink" title="镜像二叉树"></a>镜像二叉树</h3><h3 id="判断一个树是否镜像"><a href="#判断一个树是否镜像" class="headerlink" title="判断一个树是否镜像"></a>判断一个树是否镜像</h3><h3 id="二叉树转化为累加树"><a href="#二叉树转化为累加树" class="headerlink" title="二叉树转化为累加树"></a>二叉树转化为累加树</h3>]]></content>
+      <categories>
+        <category>算法与数据结构</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>树</tag>
+        <tag>二叉树</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux使用笔记</title>
+    <url>/2020/04/25/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>记录在Linux的使用过程中遇到的问题，以及应对办法</p>
+<p>每一次遇到问题，先写下对应的解决方法，顺手写清楚为什么要这么解决，先给自己挖坑，如果有时间了，就回来填坑，从原理出发解释为什么这么解决</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="命令行程序在后台运行"><a href="#命令行程序在后台运行" class="headerlink" title="命令行程序在后台运行"></a>命令行程序在后台运行</h2><ul>
+<li><p>用法：<code>nohup command &amp;</code> 或者<code>nohup command &gt; define.out 2&gt;&amp;1</code>  <em>(<code>command</code>指的是待执行命令)</em></p>
+</li>
+<li><p>注解：</p>
+<ul>
+<li><p>nohup：即no hang up，不挂起的意思。此命令指的是当前用户退出以后相应的进程继续执行。使<code>nohup</code>时如果程序有输出，默认情况下会输出到<code>nohup.out</code>文件中，如果需要指定输出文件，使用<code>nohup command &gt; define.out 2&gt;&amp;1</code>.</p>
+<ol>
+<li><p><code>command &gt; file.out</code></p>
+<p>将输出内容放置入<code>file.out</code>文件，而不在屏幕上显示。</p>
+</li>
+<li><p><code>2&gt;&amp;1</code></p>
+<p>将标准出错输出到标准输出，前面已经将标准输出重定向到了<code>define.out</code>文件，所以标准出错也会输出到<code>define.out</code>文件。</p>
+<p><code>2</code>与<code>&amp;</code>结合表示错误重定向，<code>1</code>表示错误重定向到文件1，换成<code>2&gt;&amp;1</code>，<code>&amp;</code>与<code>1</code>表示标准输出，所以<code>2&gt;&amp;1</code>表示将错误重定向到标准输出.</p>
+</li>
+</ol>
+</li>
+<li><p>&amp;：使作业在后台运行。使用<code>&amp;</code>的时候在后台运行的作业如果有输出值，将会输出到屏幕上.</p>
+</li>
+<li><p><code>nohup command &amp;</code>与<code>command &amp;</code>区别</p>
+<p><code>command &amp;</code>在后台运行，关掉终端会终止运行.</p>
+<p><code>nohup command &amp;</code>后台运行，关掉终端不会有影响；</p>
+<p><strong>使用nohup时，子进程收到父进程发来的hangup信号以后会忽略掉这个信号，达到不退出的目的；也可以通过<code>setsid</code>将父进程设置为<code>init进程</code>达到不退出的目的.</strong></p>
+</li>
+</ul>
+</li>
+<li><p>结束后台程序</p>
+<p>使用<code>jobs -l</code>查看后台运行的命令，得到进程号之后，使用<code>kill pid</code>杀死该进程.</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>笔记</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用命令行打开Ubuntu的护眼模式（Night Light）</title>
+    <url>/2020/03/28/turnon-nightlight/</url>
+    <content><![CDATA[<blockquote>
+<p>使用命令行打开Ubuntu的Night Mode</p>
+</blockquote>
+<ul>
+<li><p>Ubuntu上的护眼模式（Night Light）</p>
+<p>Ubuntu的护眼模式很香，但是不是很好用，如果使用图形界面需要在设置中打开，对于懒癌晚期的患者不是很友好</p>
+<a id="more"></a>
+</li>
+<li><p>解决方法</p>
+<ul>
+<li><p>终端中用命令打开</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 打开</span></span><br><span class="line">gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true</span><br><span class="line"><span class="meta">#</span><span class="bash"> 关闭</span></span><br><span class="line">gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false</span><br></pre></td></tr></table></figure>
+
+<p>用了两分钟，体验极差，记不住，太长了，需要继续优化</p>
+</li>
+<li><p>优化方案</p>
+<p>想到了<code>alias</code>，可以通过<code>alias</code>别名优化</p>
+<ul>
+<li>bash的<code>alias</code>不支持参数，需要用到function</li>
+</ul>
+<p><strong>大致思路</strong></p>
+<p>将<code>alias</code>的内容定义成一个函数，由函数处理参数，然后调用函数</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">function nightMode() &#123;</span><br><span class="line">	……</span><br><span class="line">	……</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">$</span><span class="bash"> nightMode &lt;<span class="literal">true</span>|<span class="literal">false</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最终实现</p>
+<p>在当前用户的<code>home</code>目录下修改<code>.bashrc</code>文件，末尾追加</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> turnon or turnoff nightlight</span></span><br><span class="line">alias nightmode='nightmode() &#123; gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled $1;&#125;; nightmode'</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用方法</p>
+<p>当前用户任意位置打开终端输入<code>nightmode true</code>或者<code>nightmode false</code>打开或者关闭护眼模式</p>
+</li>
+</ul>
+</li>
+<li><p>END</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>奇淫技巧</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
+        <tag>CLI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows下使用Git出现中文乱码</title>
+    <url>/2020/02/13/git%E4%B9%B1%E7%A0%81/</url>
+    <content><![CDATA[<blockquote>
+<p>Windows下使用Git查看git log的时候出现乱码</p>
+</blockquote>
+<ul>
+<li><strong>现象</strong><ul>
+<li><code>cmd</code> <code>powershell</code>都是乱码</li>
+<li>idea的<code>Terminal</code>终端也显示乱码</li>
+<li><code>Git Bash</code>可以正常显示中文</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
+<img src=" http://images.wpt6.cn/20200214-1.jpg" alt="powershell使用Git中文乱码" style="zoom:80%;" />
+
+<img src=" http://images.wpt6.cn/20200214-2.jpg" alt="cmd使用Git中文乱码" style="zoom:80%;" />
+
+<p><img src="http://images.wpt6.cn/20200214-3.jpg" alt="Gitbash显示中文正常"></p>
+<ul>
+<li><p><strong>解决方法</strong></p>
+<ul>
+<li><p>方法一：<em>推荐</em></p>
+<p>设置一条<code>LESSCHARSET=UTF-8</code>的环境变量–系统变量</p>
+<img src=" http://images.wpt6.cn/20200214-4.jpg" alt="设置系统变量" style="zoom:80%;" />
+
+<p>设置完成，重新打开终端使用Git</p>
+</li>
+<li><p>方法二：</p>
+<p>设置一条<code>LESSCHARSET=UTF-8</code>的环境变量–用户变量</p>
+<img src=" http://images.wpt6.cn/20200214-5.jpg" alt="设置用户变量" style="zoom:80%;" />
+
+<p><strong>注意：此时在idea中使用还是会出现中文乱码</strong></p>
+<ul>
+<li>原因：在idea中的<code>cmd</code> <code>powershell</code>只加载了系统变量并没有加载用户变量，需要在idea中重新设置一条<code>LESSCHARSET=UTF-8</code>的配置</li>
+</ul>
+<p><img src="http://images.wpt6.cn/20200214-6.jpg" alt="idea中添加配置"></p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>git</tag>
+        <tag>乱码</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>什么是回源？CDN回源与域名回源各是什么？</title>
+    <url>/2020/02/03/back-to-source/</url>
+    <content><![CDATA[<blockquote>
+<p>配置七牛云的时候，一直不是很清楚回源相关的概念，学习记录一下。</p>
+</blockquote>
+<p>理解什么是回源之前，需要明白什么是CDN。</p>
+<h5 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h5><p> 全称:<code>Content Delivery Network或Content Ddistribute Network</code>，即内容分发网络 。其搭建的思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，尽量使内容传输的更快更稳定。<a id="more"></a>CDN通过在网络边缘部署边缘服务器，依靠CDN中心平台的负载均衡、内容分发及调度等功能，使用户就近获取所需的内容，降低网络拥堵，提高用户访问响应速度和命中率。所以基本上CDN就是广泛采用各种缓存服务器，使得用户的请求直接由这些缓存服务器响应，加快了响应速度；只有在用户请求的资源在缓存服务器上没有找到或者请求访问的资源在源站点服务器上已经修改过的情况下，缓存服务器才会去访问源站点服务器以获取最新的资源。</p>
+<p>简单来说，使用CDN的目的是使用户能够更快速、更稳定的获取网络内容。举个例子：京东自营的商品，拥有本地仓库，大多数能够在当日或者次日送达，相比单一发货地的网店快很多。众多本地仓库就是CDN，加快了货物的运送。</p>
+<blockquote>
+<p>下图是一个CDN架构的基本原理图，实际使用中的架构会复杂得多，分级分区域等。</p>
+</blockquote>
+<p><img src="http://images.wpt6.cn/cdn_overview.png" alt="CDN架构图"></p>
+<h5 id="回源"><a href="#回源" class="headerlink" title="回源"></a>回源</h5><p>什么是回源？客户端发送请求报文时，响应该请求报文的是源站点的服务器，而不是各节点上的缓存服务器，那么这个过程相对于通过各节点上的缓存服务器来响应的话就称作为回源。 </p>
+<p><strong>什么情况下会回源？</strong></p>
+<ol>
+<li>用户访问时，如节点上无缓存，则会回源拉取资源</li>
+<li>CDN 节点上的文件超时过期，会回源拉取资源</li>
+<li>若为不缓存文件，用户访问时，会直接回源</li>
+<li>未忽略 URL 参数域名，使用该形式域名带参数访问资源，会直接回源</li>
+</ol>
+<p><strong>如何计算回源比？</strong></p>
+<p>回源比分为回源请求数比例及回源流量比例两种</p>
+<p><strong>回源请求数比：</strong>统计数据来自所有边缘节点上的请求记录，其中，对于没有缓存或缓存过期（可缓存）的请求以及不可缓存的请求，均计入回源请求中，其他直接命中缓存的，则为命中请求。 </p>
+<p>​        <code>回源请求数/（回源请求数+用户发送的请求数）</code> </p>
+<p><strong>回源流量比：</strong>回源流量是回源请求文件大小产生的流量和请求本身产生的流量 </p>
+<p>​         <code>回源流量比=回源流量/回源流量+用户请求访问的流量</code></p>
+<p><strong>域名回源：</strong> 在搜索引擎中所谓的 域名回源就是搜索引擎的蜘蛛在爬行的过程中直接抓取源地址上的内容而不是存在各个节点（CDN）上的缓存内容 </p>
+<h5 id="参考图书与博客"><a href="#参考图书与博客" class="headerlink" title="参考图书与博客"></a>参考图书与博客</h5><ul>
+<li>CDN技术详解 </li>
+<li><a href="https://www.cnblogs.com/losbyday/p/5843960.html" target="_blank" rel="noopener">CDN技术详解-博客</a></li>
+<li><a href="https://segmentfault.com/a/1190000000538796" target="_blank" rel="noopener">CDN工作原理</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1439913" target="_blank" rel="noopener">CDN多级缓存</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>网络</category>
+        <category>CDN</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+        <tag>回源</tag>
+        <tag>缓存</tag>
+        <tag>概念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【每日一题】H2O 生成</title>
+    <url>/2020/01/30/H2O/</url>
+    <content><![CDATA[<blockquote>
+<p>原来，猪的日子也很不好过，吃了睡睡了吃，实在是太无聊了</p>
+</blockquote>
+<h4 id="【LeetCode】1117-H2O-生成"><a href="#【LeetCode】1117-H2O-生成" class="headerlink" title="【LeetCode】1117. H2O 生成"></a>【LeetCode】1117. H2O 生成</h4><p>现在有两种线程，氢 oxygen 和氧 hydrogen，你的目标是组织这两种线程来产生水分子。</p>
+<p>存在一个屏障（barrier）使得每个线程必须等候直到一个完整水分子能够被产生出来。</p>
+<p>氢和氧线程会被分别给予 releaseHydrogen 和 releaseOxygen 方法来允许它们突破屏障。</p>
+<p>这些线程应该三三成组突破屏障并能立即组合产生一个水分子。</p>
+<p>你必须保证产生一个水分子所需线程的结合必须发生在下一个水分子产生之前。</p>
+<a id="more"></a>
+
+<p>换句话说:</p>
+<p>​    如果一个氧线程到达屏障时没有氢线程到达，它必须等候直到两个氢线程到达。<br>​    如果一个氢线程到达屏障时没有其它线程到达，它必须等候直到一个氧线程和另一个氢线程到达。<br>​    书写满足这些限制条件的氢、氧线程同步代码。</p>
+<p>示例 1:</p>
+<p><code>输入: &quot;HOH&quot;</code><br><code>输出: &quot;HHO&quot;</code><br><code>解释: &quot;HOH&quot; 和 &quot;OHH&quot; 依然都是有效解。</code><br>示例 2:</p>
+<p><code>输入: &quot;OOHHHH&quot;</code><br><code>输出: &quot;HHOHHO&quot;</code><br><code>解释: &quot;HOHHHO&quot;, &quot;OHHHHO&quot;, &quot;HHOHOH&quot;, &quot;HOHHOH&quot;, &quot;OHHHOH&quot;, &quot;HHOOHH&quot;, &quot;HOHOHH&quot; 和 &quot;OHHOHH&quot; 依然都是有效解。</code></p>
+<p>限制条件:</p>
+<ul>
+<li>输入字符串的总长将会是 3n, 1 ≤ n ≤ 50；</li>
+<li>输入字符串中的 “H” 总数将会是 2n；</li>
+<li>输入字符串中的 “O” 总数将会是 n。</li>
+</ul>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">H2O</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">H2O</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">hydrogen</span><span class="params">(Runnable releaseHydrogen)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (h == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.wait();</span><br><span class="line">        &#125;</span><br><span class="line">        releaseHydrogen.run();</span><br><span class="line">        ++h;</span><br><span class="line">        <span class="keyword">this</span>.notify();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">oxygen</span><span class="params">(Runnable releaseOxygen)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (h &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.wait();</span><br><span class="line">        &#125;</span><br><span class="line">        releaseOxygen.run();</span><br><span class="line">        h = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.notify();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>每日一题</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>多线程</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【每日一题】交替打印FooBar</title>
+    <url>/2020/01/29/printfoobar/</url>
+    <content><![CDATA[<blockquote>
+<p>继续划水</p>
+</blockquote>
+<h3 id="【LeetCode】1115-交替打印FooBar"><a href="#【LeetCode】1115-交替打印FooBar" class="headerlink" title="【LeetCode】1115. 交替打印FooBar"></a>【LeetCode】1115. 交替打印FooBar</h3><p>我们提供一个类：</p>
+<p>两个不同的线程将会共用一个 FooBar 实例。其中一个线程将会调用 foo() 方法，另一个线程将会调用 bar() 方法。</p>
+<p>请设计修改程序，以确保 “foobar” 被输出 n 次。</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooBar</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">      print(<span class="string">"foo"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">      print(<span class="string">"bar"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>示例 1:</p>
+<p><code>输入: n = 1</code><br><code>输出: &quot;foobar&quot;</code><br><code>解释: 这里有两个线程被异步启动。其中一个调用 foo() 方法, 另一个调用 bar() 方法，&quot;foobar&quot; 将被输出一次。</code></p>
+<p>示例 2:</p>
+<p><code>输入: n = 2</code><br><code>输出: &quot;foobarfoobar&quot;</code><br><code>解释: &quot;foobar&quot; 将被输出两次。</code></p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FooBar</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FooBar</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.n = n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;   <span class="comment">// f-foo, t-bar</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(Runnable printFoo)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="comment">// printFoo.run() outputs "foo". Do not change or remove this line.</span></span><br><span class="line">            <span class="keyword">while</span>( flag) wait();</span><br><span class="line">            printFoo.run();</span><br><span class="line">            flag = <span class="keyword">true</span>;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">bar</span><span class="params">(Runnable printBar)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="comment">// printBar.run() outputs "bar". Do not change or remove this line.</span></span><br><span class="line">            <span class="keyword">while</span>( !flag) wait();</span><br><span class="line">            printBar.run();</span><br><span class="line">            flag = <span class="keyword">false</span>;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>每日一题</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>多线程</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【每日一题】交替打印字符串</title>
+    <url>/2020/01/28/FizzBuzz/</url>
+    <content><![CDATA[<blockquote>
+<p>肺炎赋闲在家，水一些简单题打发时间吧</p>
+</blockquote>
+<h3 id="【LeetCode】1195-交替打印字符串"><a href="#【LeetCode】1195-交替打印字符串" class="headerlink" title="【LeetCode】1195. 交替打印字符串"></a>【LeetCode】1195. 交替打印字符串</h3><p>编写一个可以从 1 到 n 输出代表这个数字的字符串的程序，但是：</p>
+<p>如果这个数字可以被 3 整除，输出 “fizz”。<br>如果这个数字可以被 5 整除，输出 “buzz”。<br>如果这个数字可以同时被 3 和 5 整除，输出 “fizzbuzz”。<br>例如，当 n = 15，输出： 1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fizzbuzz。</p>
+<a id="more"></a>
+
+<p>假设有这么一个类：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class FizzBuzz &#123;</span><br><span class="line">  public FizzBuzz(int n) &#123; ... &#125;               &#x2F;&#x2F; constructor</span><br><span class="line">  public void fizz(printFizz) &#123; ... &#125;          &#x2F;&#x2F; only output &quot;fizz&quot;</span><br><span class="line">  public void buzz(printBuzz) &#123; ... &#125;          &#x2F;&#x2F; only output &quot;buzz&quot;</span><br><span class="line">  public void fizzbuzz(printFizzBuzz) &#123; ... &#125;  &#x2F;&#x2F; only output &quot;fizzbuzz&quot;</span><br><span class="line">  public void number(printNumber) &#123; ... &#125;      &#x2F;&#x2F; only output the numbers</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>请你实现一个有四个线程的多线程版  FizzBuzz， 同一个 FizzBuzz 实例会被如下四个线程使用：</p>
+<p><code>线程A将调用 fizz() 来判断是否能被 3 整除，如果可以，则输出 fizz。</code><br><code>线程B将调用 buzz() 来判断是否能被 5 整除，如果可以，则输出 buzz。</code><br><code>线程C将调用 fizzbuzz() 来判断是否同时能被 3 和 5 整除，如果可以，则输出 fizzbuzz。</code><br><code>线程D将调用 number() 来实现输出既不能被 3 整除也不能被 5 整除的数字。</code></p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>一个简单的同步问题</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FizzBuzz</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FizzBuzz</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.n = n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> iCount = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printFizz.run() outputs "fizz".</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">fizz</span><span class="params">(Runnable printFizz)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">3</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printFizz.run();</span><br><span class="line">            iCount++;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printBuzz.run() outputs "buzz".</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">buzz</span><span class="params">(Runnable printBuzz)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">5</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printBuzz.run();</span><br><span class="line">            iCount++;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printFizzBuzz.run() outputs "fizzbuzz".</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">fizzbuzz</span><span class="params">(Runnable printFizzBuzz)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">3</span> != <span class="number">0</span> || iCount % <span class="number">5</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printFizzBuzz.run();</span><br><span class="line">            iCount++;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printNumber.accept(x) outputs "x", where x is an integer.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">number</span><span class="params">(IntConsumer printNumber)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">3</span> == <span class="number">0</span> || iCount % <span class="number">5</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printNumber.accept(iCount++);</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>每日一题</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>多线程</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【每日一题】int32 to IPv4</title>
+    <url>/2020/01/27/int32-to-IPv4/</url>
+    <content><![CDATA[<h3 id="【CodeWars】int32-to-IPv4"><a href="#【CodeWars】int32-to-IPv4" class="headerlink" title="【CodeWars】int32 to IPv4"></a>【CodeWars】int32 to IPv4</h3><p>Take the following IPv4 address: <code>128.32.10.1</code></p>
+<p>This address has 4 octets where each octet is a single byte (or 8 bits).</p>
+<ul>
+<li>1st octet <code>128</code> has the binary representation: <code>10000000</code></li>
+<li>2nd octet <code>32</code> has the binary representation: <code>00100000</code></li>
+<li>3rd octet <code>10</code> has the binary representation: <code>00001010</code></li>
+<li>4th octet <code>1</code> has the binary representation: <code>00000001</code></li>
+</ul>
+<p>So <code>128.32.10.1</code> == <code>10000000.00100000.00001010.00000001</code></p>
+<p>Because the above IP address has 32 bits, we can represent it as the unsigned 32 bit number: <code>2149583361</code></p>
+<p>Complete the function that takes an unsigned 32 bit number and returns a string representation of its IPv4 address.</p>
+<a id="more"></a>
+
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">2149583361 ==&gt; "128.32.10.1"</span><br><span class="line">32         ==&gt; "0.0.0.32"</span><br><span class="line">0          ==&gt; "0.0.0.0"</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>按照题目描述，点分十进制的IP地址转换成点分二进制之后，去掉分隔符后转化成unsigned 32位整数。例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">128.32.10.1 ---&gt; 10000000.00100000.00001010.00000001 ---&gt; 10000000001000000000101000000001 ---&gt; 2149583361</span><br></pre></td></tr></table></figure>
+
+<p>此题最终思路只需将上述转化过程逆序实现即可。</p>
+<p>利用与运算取最后8位二进制：2149583361 &amp; 0xff</p>
+<p>利用无符号右移、与运算取倒数第二个8位二进制：2149583361&gt;&gt;&gt;8 &amp; 0xff</p>
+<p>同理：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Kata</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longToIP</span><span class="params">(<span class="keyword">long</span> ip)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> String.format(<span class="string">"%d.%d.%d.%d"</span>,ip &gt;&gt;&gt; <span class="number">24</span> &amp; <span class="number">0xff</span>,ip &gt;&gt;&gt; <span class="number">16</span> &amp; <span class="number">0xff</span>,ip &gt;&gt;&gt; <span class="number">8</span> &amp; <span class="number">0xff</span>,ip &amp; <span class="number">0xff</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>每日一题</category>
+        <category>CodeWars</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>CodeWars</tag>
+        <tag>BINARY</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HelloWorld</title>
+    <url>/2020/01/25/HelloWorld/</url>
+    <content><![CDATA[<p>经过一番折腾，终于把GitHub Page 弄好了</p>
+<a id="more"></a>
+
+<p>距离自己买的服务器过期已经好长时间了，中间又有很多事情，一直都没机会再处理自己博客的事情，原博客的文章没来得及备份，重新开始吧。</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>入门</tag>
+      </tags>
+  </entry>
+</search>
