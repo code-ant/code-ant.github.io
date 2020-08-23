@@ -2,7 +2,7 @@
 title: Github、npm配置代理
 date: 2020-08-23 19:37:11
 categories: [配置]
-tags: [代理,配置,npm,github]
+tags: [代理,配置,npm,github,git]
 ---
 
 鉴于一些网络环境的问题，有必要收藏一些代理的使用方法。
