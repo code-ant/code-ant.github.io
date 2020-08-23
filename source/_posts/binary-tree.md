@@ -114,15 +114,41 @@ public List<Integer> inorderTraversal(TreeNode root) {
     //迭代方法同前序遍历
 ```
 
-
-
-
-
 ### 深度优先遍历
 
-
+```java
+//DFS
+同前序遍历
+```
 
 ### 广度优先遍历
+
+```java
+    //BFS
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> level = new LinkedList<>();
+            for (int i = 0; i < size; ++i) {
+                TreeNode cur = q.peek();
+                q.poll();
+                if (cur == null) {
+                    continue;
+                }
+                level.add(cur.val);
+                q.offer(cur.left);
+                q.offer(cur.right);
+            }
+            if (!level.isEmpty()) {
+                res.add(level);
+            }
+        }
+        return res;
+    }
+```
 
 
 
