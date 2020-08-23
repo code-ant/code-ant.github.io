@@ -65,7 +65,7 @@
   <meta name="description" content="一个码蚁的栖息地">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Code-ant&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="Code-ant&#39;s Blog">
 <meta property="og:description" content="一个码蚁的栖息地">
 <meta property="og:locale" content="zh_CN">
@@ -73,19 +73,19 @@
 <meta property="article:tag" content="博客;blog">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/page/2/">
+<link rel="canonical" href="http://yoursite.com/tags/%E4%BB%A3%E7%90%86/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
+    isHome: false,
     isPost: false
   };
 </script>
 
-  <title>Code-ant's Blog</title>
+  <title>标签: 代理 | Code-ant's Blog</title>
   
 
 
@@ -227,223 +227,49 @@
           <div class="content">
             
 
-  <div class="posts-expand">
-        
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/27/int32-to-IPv4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="http://images.wpt6.cn/bloglogo.jpg">
-      <meta itemprop="name" content="王鹏泰">
-      <meta itemprop="description" content="一个码蚁的栖息地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code-ant's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/27/int32-to-IPv4/" class="post-title-link" itemprop="url">【每日一题】int32 to IPv4</a>
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h1 class="collection-header">代理
+          <small>标签</small>
         </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-27 11:45:33" itemprop="dateCreated datePublished" datetime="2020-01-27T11:45:33+08:00">2020-01-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-22 00:23:43" itemprop="dateModified" datetime="2020-08-22T00:23:43+08:00">2020-08-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index">
-                    <span itemprop="name">每日一题</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/CodeWars/" itemprop="url" rel="index">
-                    <span itemprop="name">CodeWars</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      </div>
 
       
-          <h3 id="【CodeWars】int32-to-IPv4"><a href="#【CodeWars】int32-to-IPv4" class="headerlink" title="【CodeWars】int32 to IPv4"></a>【CodeWars】int32 to IPv4</h3><p>Take the following IPv4 address: <code>128.32.10.1</code></p>
-<p>This address has 4 octets where each octet is a single byte (or 8 bits).</p>
-<ul>
-<li>1st octet <code>128</code> has the binary representation: <code>10000000</code></li>
-<li>2nd octet <code>32</code> has the binary representation: <code>00100000</code></li>
-<li>3rd octet <code>10</code> has the binary representation: <code>00001010</code></li>
-<li>4th octet <code>1</code> has the binary representation: <code>00000001</code></li>
-</ul>
-<p>So <code>128.32.10.1</code> == <code>10000000.00100000.00001010.00000001</code></p>
-<p>Because the above IP address has 32 bits, we can represent it as the unsigned 32 bit number: <code>2149583361</code></p>
-<p>Complete the function that takes an unsigned 32 bit number and returns a string representation of its IPv4 address.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/27/int32-to-IPv4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+    <div class="collection-year">
+      <h1 class="collection-header">2020</h1>
     </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-08-23T19:37:11+08:00"
+              content="2020-08-23">
+          08-23
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/2020/08/23/proxy/" itemprop="url">
+            <span itemprop="name">Github、npm配置代理</span>
+          </a>
+      </h2>
+
+    </header>
   </article>
-  
-  
-  
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/25/HelloWorld/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="http://images.wpt6.cn/bloglogo.jpg">
-      <meta itemprop="name" content="王鹏泰">
-      <meta itemprop="description" content="一个码蚁的栖息地">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Code-ant's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/25/HelloWorld/" class="post-title-link" itemprop="url">HelloWorld</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-25 22:56:26" itemprop="dateCreated datePublished" datetime="2020-01-25T22:56:26+08:00">2020-01-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-22 00:23:43" itemprop="dateModified" datetime="2020-08-22T00:23:43+08:00">2020-08-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>87</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>经过一番折腾，终于把GitHub Page 弄好了</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/25/HelloWorld/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
+  
+  
+  
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
 
 
 
