@@ -121,7 +121,37 @@
 
 
 
-<h3 id="计算树的高度"><a href="#计算树的高度" class="headerlink" title="计算树的高度"></a>计算树的高度</h3><h3 id="计算树的直径"><a href="#计算树的直径" class="headerlink" title="计算树的直径"></a>计算树的直径</h3><h3 id="镜像二叉树"><a href="#镜像二叉树" class="headerlink" title="镜像二叉树"></a>镜像二叉树</h3><h3 id="判断一个树是否镜像"><a href="#判断一个树是否镜像" class="headerlink" title="判断一个树是否镜像"></a>判断一个树是否镜像</h3><h3 id="二叉树转化为累加树"><a href="#二叉树转化为累加树" class="headerlink" title="二叉树转化为累加树"></a>二叉树转化为累加树</h3>]]></content>
+<h3 id="计算树的高度"><a href="#计算树的高度" class="headerlink" title="计算树的高度"></a>计算树的高度</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> leftde = maxDepth(root.left);</span><br><span class="line">    <span class="keyword">int</span> rightde = maxDepth(root.right);</span><br><span class="line">    <span class="keyword">return</span> Math.max(leftde, rightde) +<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计算树的直径"><a href="#计算树的直径" class="headerlink" title="计算树的直径"></a>计算树的直径</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/diameter-of-binary-tree/" target="_blank" rel="noopener">leetcode-543</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> result;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    depth(root);</span><br><span class="line">    <span class="keyword">return</span> result&gt;<span class="number">0</span>?result-<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">depth</span><span class="params">(TreeNode node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> L = depth(node.left);</span><br><span class="line">    <span class="keyword">int</span> R = depth(node.right);</span><br><span class="line">    result = Math.max(result,L+R+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> Math.max(R,L) +<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="镜像二叉树"><a href="#镜像二叉树" class="headerlink" title="镜像二叉树"></a>镜像二叉树</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/" target="_blank" rel="noopener">leetcode</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">mirrorTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    TreeNode temp = root.left;</span><br><span class="line">    root.left = root.right;</span><br><span class="line">    root.right = temp;</span><br><span class="line">    mirrorTree(root.left);</span><br><span class="line">    mirrorTree(root.right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="判断一个树是否镜像"><a href="#判断一个树是否镜像" class="headerlink" title="判断一个树是否镜像"></a>判断一个树是否镜像</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/symmetric-tree/" target="_blank" rel="noopener">leetcode-101</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root ==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compare(root.left,root.right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">compare</span><span class="params">(TreeNode mleft, TreeNode mright)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(mleft ==<span class="keyword">null</span>&amp;&amp; mright == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mleft == <span class="keyword">null</span> || mright == <span class="keyword">null</span> || mleft.val != mright.val) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compare(mleft.left, mright.right) &amp;&amp; compare(mleft.right, mright.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二叉搜索树转化为累加树"><a href="#二叉搜索树转化为累加树" class="headerlink" title="二叉搜索树转化为累加树"></a>二叉搜索树转化为累加树</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/convert-bst-to-greater-tree/" target="_blank" rel="noopener">leetcode-538</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">convertBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(root != <span class="keyword">null</span>) &#123;</span><br><span class="line">        convertBST(root.right);</span><br><span class="line">        sum += root.val;</span><br><span class="line">        root.val = sum;</span><br><span class="line">        convertBST(root.left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>算法与数据结构</category>
       </categories>
