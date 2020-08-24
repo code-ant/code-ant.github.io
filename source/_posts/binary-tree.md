@@ -154,19 +154,102 @@ public List<Integer> inorderTraversal(TreeNode root) {
 
 ### 计算树的高度
 
+```java
+    public int maxDepth(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+        int leftde = maxDepth(root.left);
+        int rightde = maxDepth(root.right);
+        return Math.max(leftde, rightde) +1;
+    }
+```
+
 
 
 ### 计算树的直径
+
+- [leetcode-543](https://leetcode-cn.com/problems/diameter-of-binary-tree/)
+
+```java
+    int result;
+    public int diameterOfBinaryTree(TreeNode root) {
+        depth(root);
+        return result>0?result-1:0;
+    }
+
+    public int depth(TreeNode node){
+        if(node == null){
+            return 0;
+        }
+        int L = depth(node.left);
+        int R = depth(node.right);
+        result = Math.max(result,L+R+1);
+        return Math.max(R,L) +1;
+    }
+```
 
 
 
 ### 镜像二叉树
 
+- [leetcode](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/)
+
+```java
+    public TreeNode mirrorTree(TreeNode root) {
+        if (root == null)
+            return null;
+
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        mirrorTree(root.left);
+        mirrorTree(root.right);
+        return root;
+    }
+```
+
 
 
 ### 判断一个树是否镜像
 
+- [leetcode-101](https://leetcode-cn.com/problems/symmetric-tree/)
+
+```java
+    public boolean isSymmetric(TreeNode root) {
+        if(root ==null){
+            return true;
+        }
+        return compare(root.left,root.right);
+    }
+    public boolean compare(TreeNode mleft, TreeNode mright){
+        if(mleft ==null&& mright == null){
+            return true;
+        }
+        if(mleft == null || mright == null || mleft.val != mright.val) {
+            return false;
+        }
+        return compare(mleft.left, mright.right) && compare(mleft.right, mright.left);
+    }
+```
 
 
-### 二叉树转化为累加树
+
+### 二叉搜索树转化为累加树
+
+- [leetcode-538](https://leetcode-cn.com/problems/convert-bst-to-greater-tree/)
+
+```java
+    int sum = 0;
+    public TreeNode convertBST(TreeNode root) {
+
+        if(root != null) {
+            convertBST(root.right);
+            sum += root.val;
+            root.val = sum;
+            convertBST(root.left);
+        }
+        return root;
+    }
+```
 
