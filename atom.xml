@@ -135,6 +135,31 @@
   </entry>
   
   <entry>
+    <title>git使用笔记</title>
+    <link href="http://yoursite.com/2020/08/04/git-notes/"/>
+    <id>http://yoursite.com/2020/08/04/git-notes/</id>
+    <published>2020-08-04T13:33:21.000Z</published>
+    <updated>2020-09-04T13:38:32.641Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些常见的git命令吧</p><a id="more"></a><ul><li><p>创建分支</p><p><code>git branch branchName</code></p></li><li><p>切换分支</p><p><code>git checkout targetBranch</code></p></li><li><p>创建分支并切换到该分支</p><p><code>git checkout -b branchName</code></p></li><li><p>拉取远程分支到本地</p><p><code>git checkout -b localbranch origin/remoteBranch</code></p><p><code>git pull origin master</code></p></li><li><p>推送本地分支到远程</p><p><code>git push origin localBranch</code></p></li><li><p>删除本地分支</p><p><code>git branch -d localBranch</code></p></li><li><p>删除远程分支</p><p><code>git push origin :branchToboDeleted</code></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些常见的git命令吧&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="开发工具" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux使用笔记</title>
     <link href="http://yoursite.com/2020/04/25/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2020/04/25/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</id>
