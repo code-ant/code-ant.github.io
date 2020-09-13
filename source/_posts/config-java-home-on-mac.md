@@ -149,7 +149,7 @@ zsh使用的是这些配置文件，所以在上面说的两个bash使用的配�
 所以
 
 ```shell
-echo "export JAVA_HOME=\$(/usr/libexec/java_home)" >> ~/.zshenv
+echo export JAVA_HOME=\$\(/usr/libexec/java_home\) >> ~/.zshenv
 ```
 
 关于进一步详细设置，可以参考[如何在Mac OS X 10.9上设置JAVA_HOME环境变量？](https://qastack.cn/programming/22842743/how-to-set-java-home-environment-variable-on-mac-os-x-10-9)
