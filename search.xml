@@ -72,7 +72,7 @@
 </blockquote>
 <p>zsh使用的是这些配置文件，所以在上面说的两个bash使用的配置文件中添加环境变量，默认是不加载的。</p>
 <p>所以</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo export JAVA_HOME=$(/usr/libexec/java_home) &gt;&gt; ~/.zshenv</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo "export JAVA_HOME=\$(/usr/libexec/java_home)" &gt;&gt; ~/.zshenv</span><br></pre></td></tr></table></figure>
 
 <p>关于进一步详细设置，可以参考<a href="https://qastack.cn/programming/22842743/how-to-set-java-home-environment-variable-on-mac-os-x-10-9" target="_blank" rel="noopener">如何在Mac OS X 10.9上设置JAVA_HOME环境变量？</a></p>
 <p>关于zsh的配置文件的比较，可以参考<a href="https://scriptingosx.com/2019/06/moving-to-zsh-part-2-configuration-files/" target="_blank" rel="noopener">Moving to zsh, part 2: Configuration Files</a>和<a href="https://chenyufei.info/blog/2014-03-04/zsh-tmux-osx-set-correct-path/" target="_blank" rel="noopener">zsh+tmux+OS X: 正确地设置 PATH</a>这两篇博客。</p>
