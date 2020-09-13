@@ -62,25 +62,25 @@
     }
 </style>
 
-  <meta name="description" content="配置七牛云的时候，一直不是很清楚回源相关的概念，学习记录一下。  理解什么是回源之前，需要明白什么是CDN。 CDN 全称:Content Delivery Network或Content Ddistribute Network，即内容分发网络 。其搭建的思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，尽量使内容传输的更快更稳定。">
+  <meta name="description" content="在Mac上配置Java开发环境的时候，遇到了一些问题，搜索一番下来之后，更困惑了，各类教程基本上是复制粘贴，而且还很老旧，或者按照Linux系列的系统进行配置，部分情况下配置无法生效，特意搜了一下官方文档，总结一下最新的配置方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是回源？CDN回源与域名回源各是什么？">
-<meta property="og:url" content="http://yoursite.com/2020/02/03/back-to-source/index.html">
+<meta property="og:title" content="在OS X上配置JAVA_HOME环境变量">
+<meta property="og:url" content="http://yoursite.com/2020/09/13/config-java-home-on-mac/index.html">
 <meta property="og:site_name" content="Code-ant&#39;s Blog">
-<meta property="og:description" content="配置七牛云的时候，一直不是很清楚回源相关的概念，学习记录一下。  理解什么是回源之前，需要明白什么是CDN。 CDN 全称:Content Delivery Network或Content Ddistribute Network，即内容分发网络 。其搭建的思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，尽量使内容传输的更快更稳定。">
+<meta property="og:description" content="在Mac上配置Java开发环境的时候，遇到了一些问题，搜索一番下来之后，更困惑了，各类教程基本上是复制粘贴，而且还很老旧，或者按照Linux系列的系统进行配置，部分情况下配置无法生效，特意搜了一下官方文档，总结一下最新的配置方法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://images.wpt6.cn/cdn_overview.png">
-<meta property="article:published_time" content="2020-02-03T09:48:38.000Z">
-<meta property="article:modified_time" content="2020-08-21T16:23:43.062Z">
+<meta property="og:image" content="http://images.wpt6.cn/blog/2020-09-13-23-57-38.png">
+<meta property="og:image" content="http://images.wpt6.cn/blog/2020-09-14-00-05-42.png">
+<meta property="article:published_time" content="2020-09-13T15:31:33.000Z">
+<meta property="article:modified_time" content="2020-09-13T16:27:59.271Z">
 <meta property="article:author" content="王鹏泰">
-<meta property="article:tag" content="CDN">
-<meta property="article:tag" content="回源">
-<meta property="article:tag" content="缓存">
-<meta property="article:tag" content="概念">
+<meta property="article:tag" content="配置">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="OS X">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://images.wpt6.cn/cdn_overview.png">
+<meta name="twitter:image" content="http://images.wpt6.cn/blog/2020-09-13-23-57-38.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/03/back-to-source/">
+<link rel="canonical" href="http://yoursite.com/2020/09/13/config-java-home-on-mac/">
 
 
 <script id="page-configurations">
@@ -92,7 +92,7 @@
   };
 </script>
 
-  <title>什么是回源？CDN回源与域名回源各是什么？ | Code-ant's Blog</title>
+  <title>在OS X上配置JAVA_HOME环境变量 | Code-ant's Blog</title>
   
 
 
@@ -239,7 +239,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/back-to-source/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/13/config-java-home-on-mac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="http://images.wpt6.cn/bloglogo.jpg">
@@ -252,7 +252,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          什么是回源？CDN回源与域名回源各是什么？
+          在OS X上配置JAVA_HOME环境变量
         </h1>
 
         <div class="post-meta">
@@ -262,14 +262,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-03 17:48:38" itemprop="dateCreated datePublished" datetime="2020-02-03T17:48:38+08:00">2020-02-03</time>
+              <time title="创建时间：2020-09-13 23:31:33" itemprop="dateCreated datePublished" datetime="2020-09-13T23:31:33+08:00">2020-09-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-22 00:23:43" itemprop="dateModified" datetime="2020-08-22T00:23:43+08:00">2020-08-22</time>
+                <time title="修改时间：2020-09-14 00:27:59" itemprop="dateModified" datetime="2020-09-14T00:27:59+08:00">2020-09-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,14 +277,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C/CDN/" itemprop="url" rel="index">
-                    <span itemprop="name">CDN</span>
+                  <a href="/categories/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index">
+                    <span itemprop="name">配置</span>
                   </a>
                 </span>
             </span>
@@ -302,14 +296,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>995</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -321,37 +315,79 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>配置七牛云的时候，一直不是很清楚回源相关的概念，学习记录一下。</p>
-</blockquote>
-<p>理解什么是回源之前，需要明白什么是CDN。</p>
-<h5 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h5><p> 全称:<code>Content Delivery Network或Content Ddistribute Network</code>，即内容分发网络 。其搭建的思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，尽量使内容传输的更快更稳定。<a id="more"></a>CDN通过在网络边缘部署边缘服务器，依靠CDN中心平台的负载均衡、内容分发及调度等功能，使用户就近获取所需的内容，降低网络拥堵，提高用户访问响应速度和命中率。所以基本上CDN就是广泛采用各种缓存服务器，使得用户的请求直接由这些缓存服务器响应，加快了响应速度；只有在用户请求的资源在缓存服务器上没有找到或者请求访问的资源在源站点服务器上已经修改过的情况下，缓存服务器才会去访问源站点服务器以获取最新的资源。</p>
-<p>简单来说，使用CDN的目的是使用户能够更快速、更稳定的获取网络内容。举个例子：京东自营的商品，拥有本地仓库，大多数能够在当日或者次日送达，相比单一发货地的网店快很多。众多本地仓库就是CDN，加快了货物的运送。</p>
+        <p>在Mac上配置Java开发环境的时候，遇到了一些问题，搜索一番下来之后，更困惑了，各类教程基本上是复制粘贴，而且还很老旧，或者按照Linux系列的系统进行配置，部分情况下配置无法生效，特意搜了一下官方文档，总结一下最新的配置方法。</p>
+<a id="more"></a>
+
+<p><strong>系统环境</strong></p>
+<p>系统版本：macOS Catalina 10.15.6</p>
+<p>Shell：zsh</p>
+<p><a href="https://developer.apple.com/library/archive/qa/qa1170/_index.html" target="_blank" rel="noopener">官方链接</a></p>
 <blockquote>
-<p>下图是一个CDN架构的基本原理图，实际使用中的架构会复杂得多，分级分区域等。</p>
+<p>Many Java applications need to know the location of a <code>$JAVA_HOME</code> directory. The <code>$JAVA_HOME</code> on Mac OS X should be found using the <code>/usr/libexec/java_home</code> command line tool on Mac OS X 10.5 or later. On older Mac OS X versions where the tool does not exist, use the fixed path “<code>/Library/Java/Home</code>“. The <code>/usr/libexec/java_home</code> tool dynamically finds the top Java version specified in Java Preferences for the current user. This path allows access to the <code>bin</code> subdirectory where command line tools such as <code>java</code>, <code>javac</code>, etc. exist as on other platforms. The tool <code>/usr/libexec/java_home</code> allows you to specify a particular CPU architecture and Java platform version when locating a <code>$JAVA_HOME</code>.</p>
+<p>Another advantage of dynamically finding this path, as opposed to hardcoding the fixed endpoint, is that it is updated when a new version of Java is downloaded via Software Update or installed with a newer version of Mac OS X. For this reason, it is important that developers do not install files in the JDKs inside of <code>/System</code>, since the changes will be lost with subsequent updates by newer versions of Java.</p>
+<p>To obtain the path to the currently executing <code>$JAVA_HOME</code>, use the <code>java.home</code> System property.</p>
 </blockquote>
-<p><img src="http://images.wpt6.cn/cdn_overview.png" alt="CDN架构图"></p>
-<h5 id="回源"><a href="#回源" class="headerlink" title="回源"></a>回源</h5><p>什么是回源？客户端发送请求报文时，响应该请求报文的是源站点的服务器，而不是各节点上的缓存服务器，那么这个过程相对于通过各节点上的缓存服务器来响应的话就称作为回源。 </p>
-<p><strong>什么情况下会回源？</strong></p>
-<ol>
-<li>用户访问时，如节点上无缓存，则会回源拉取资源</li>
-<li>CDN 节点上的文件超时过期，会回源拉取资源</li>
-<li>若为不缓存文件，用户访问时，会直接回源</li>
-<li>未忽略 URL 参数域名，使用该形式域名带参数访问资源，会直接回源</li>
-</ol>
-<p><strong>如何计算回源比？</strong></p>
-<p>回源比分为回源请求数比例及回源流量比例两种</p>
-<p><strong>回源请求数比：</strong>统计数据来自所有边缘节点上的请求记录，其中，对于没有缓存或缓存过期（可缓存）的请求以及不可缓存的请求，均计入回源请求中，其他直接命中缓存的，则为命中请求。 </p>
-<p>​        <code>回源请求数/（回源请求数+用户发送的请求数）</code> </p>
-<p><strong>回源流量比：</strong>回源流量是回源请求文件大小产生的流量和请求本身产生的流量 </p>
-<p>​         <code>回源流量比=回源流量/回源流量+用户请求访问的流量</code></p>
-<p><strong>域名回源：</strong> 在搜索引擎中所谓的 域名回源就是搜索引擎的蜘蛛在爬行的过程中直接抓取源地址上的内容而不是存在各个节点（CDN）上的缓存内容 </p>
-<h5 id="参考图书与博客"><a href="#参考图书与博客" class="headerlink" title="参考图书与博客"></a>参考图书与博客</h5><ul>
-<li>CDN技术详解 </li>
-<li><a href="https://www.cnblogs.com/losbyday/p/5843960.html" target="_blank" rel="noopener">CDN技术详解-博客</a></li>
-<li><a href="https://segmentfault.com/a/1190000000538796" target="_blank" rel="noopener">CDN工作原理</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1439913" target="_blank" rel="noopener">CDN多级缓存</a></li>
-</ul>
+<p><strong>developer.apple.com中明确指出了，10.5以后的系统版本使用<code>/usr/libexec/java_home</code>进行配置。</strong></p>
+<p>看一下<code>/usr/libexec/java_home</code>究竟是个什么东西</p>
+<p><img src="http://images.wpt6.cn/blog/2020-09-13-23-57-38.png" alt="2020-09-13-23-57-38"></p>
+<p><strong>为什么要使用/ usr / libexec / java_home？</strong><br>此<code>java_home</code>可以返回在Java首选项中为当前用户指定的Java版本。</p>
+<p>例如：</p>
+<p><img src="http://images.wpt6.cn/blog/2020-09-14-00-05-42.png" alt="2020-09-14-00-05-42"></p>
+<p>通过-V查看当前安装的所有Java的版本</p>
+<p>可以使用java_home -v &lt;JDK版本号&gt;来进行切换</p>
+<p>参考：<a href="https://www.jianshu.com/p/af79ae7f732c" target="_blank" rel="noopener">在 Mac OS 上管理多个 jdk 版本</a></p>
+<hr>
+<p>除去上面配置Java_HOME的一点，还有zsh和shell的区别，众多教程里面也没有注明，不加分辨，盲目复制会走不少弯路。</p>
+<p>重要原因在于：macOS Catalina 默认的shell环境是zsh，zsh和shell的加载配置文件是不一样的，按照习惯，在<code>/etc/profile</code>或者<code>～/.bashrc</code>中添加环境变量信息会不起作用。</p>
+<p>看一下<code>man zsh</code>的说明</p>
+<blockquote>
+<p><strong>STARTUP/SHUTDOWN</strong> <strong>FILES</strong></p>
+<p>​    Commands are first read from <strong>/etc/zshenv</strong>; this cannot be overridden. Subsequent be-</p>
+<p>​    haviour is modified by the <strong>RCS</strong> and <strong>GLOBAL_RCS</strong> options; the former affects all startup</p>
+<p>​    files, while the second only affects global startup files (those shown here with an</p>
+<p>​    path starting with a <strong>/</strong>). If one of the options is unset at any point, any subsequent</p>
+<p>​    startup file(s) of the corresponding type will not be read. It is also possible for a</p>
+<p>​    file in <strong>$ZDOTDIR</strong> to re-enable <strong>GLOBAL_RCS</strong>. Both <strong>RCS</strong> and <strong>GLOBAL_RCS</strong> are set by default.</p>
+<p>​    Commands are then read from <strong>$ZDOTDIR/.zshenv</strong>. If the shell is a login shell, commands</p>
+<p>​    are read from <strong>/etc/zprofile</strong> and then <strong>$ZDOTDIR/.zprofile</strong>. Then, if the shell is inter-</p>
+<p>​    active, commands are read from <strong>/etc/zshrc</strong> and then <strong>$ZDOTDIR/.zshrc</strong>. Finally, if the</p>
+<p>​    shell is a login shell, <strong>/etc/zlogin</strong> and <strong>$ZDOTDIR/.zlogin</strong> are read.</p>
+<p>​    When a login shell exits, the files <strong>$ZDOTDIR/.zlogout</strong> and then <strong>/etc/zlogout</strong> are read.</p>
+<p>​    This happens with either an explicit exit via the <strong>exit</strong> or <strong>logout</strong> commands, or an</p>
+<p>​    implicit exit by reading end-of-file from the terminal. However, if the shell termi-</p>
+<p>​    nates due to <strong>exec</strong>‘ing another process, the logout files are not read. These are also</p>
+<p>​    affected by the <strong>RCS</strong> and <strong>GLOBAL_RCS</strong> options. Note also that the <strong>RCS</strong> option affects the</p>
+<p>​    saving of history files, i.e. if <strong>RCS</strong> is unset when the shell exits, no history file</p>
+<p>​    will be saved.</p>
+<p>​    If <strong>ZDOTDIR</strong> is unset, <strong>HOME</strong> is used instead. Files listed above as being in <strong>/etc</strong> may be</p>
+<p>​    in another directory, depending on the installation.</p>
+<p>​    As <strong>/etc/zshenv</strong> is run for all instances of zsh, it is important that it be kept as</p>
+<p>​    small as possible. In particular, it is a good idea to put code that does not need to</p>
+<p>​    be run for every single shell behind a test of the form `<strong>if</strong> <strong>[[</strong> <strong>-o</strong> <strong>rcs</strong> <strong>]];</strong> <strong>then</strong> <strong>…</strong>‘ so</p>
+<p>​    that it will not be executed when zsh is invoked with the `<strong>-f</strong>‘ option.</p>
+<p>​    Any of these files may be pre-compiled with the <strong>zcompile</strong> builtin command (see zsh-</p>
+<p>​    builtins(1)).  If a compiled file exists (named for the original file plus the <strong>.zwc</strong></p>
+<p>​    extension) and it is newer than the original file, the compiled file will be used</p>
+<p>​    instead.</p>
+<p><strong>FILES</strong></p>
+<p>​    <strong>$ZDOTDIR/.zshenv</strong></p>
+<p>​    <strong>$ZDOTDIR/.zprofile</strong></p>
+<p>​    <strong>$ZDOTDIR/.zshrc</strong></p>
+<p>​    <strong>$ZDOTDIR/.zlogin</strong></p>
+<p>​    <strong>$ZDOTDIR/.zlogout</strong></p>
+<p>​    <strong>${TMPPREFIX}*</strong>  (default is /tmp/zsh*)</p>
+<p>​    <strong>/etc/zshenv</strong></p>
+<p>​    <strong>/etc/zprofile</strong></p>
+<p>​    <strong>/etc/zshrc</strong></p>
+<p>​    <strong>/etc/zlogin</strong></p>
+<p>​    <strong>/etc/zlogout</strong>  (installation-specific - <strong>/etc</strong> is the default)</p>
+</blockquote>
+<p>zsh使用的是这些配置文件，所以在上面说的两个bash使用的配置文件中添加环境变量，默认是不加载的。</p>
+<p>所以</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=$(/usr/libexec/java_home) &gt;&gt; ~/.zshenv</span><br></pre></td></tr></table></figure>
+
+<p>关于进一步详细设置，可以参考<a href="https://qastack.cn/programming/22842743/how-to-set-java-home-environment-variable-on-mac-os-x-10-9" target="_blank" rel="noopener">如何在Mac OS X 10.9上设置JAVA_HOME环境变量？</a></p>
+<p>关于zsh的配置文件的比较，可以参考<a href="https://scriptingosx.com/2019/06/moving-to-zsh-part-2-configuration-files/" target="_blank" rel="noopener">Moving to zsh, part 2: Configuration Files</a>和<a href="https://chenyufei.info/blog/2014-03-04/zsh-tmux-osx-set-correct-path/" target="_blank" rel="noopener">zsh+tmux+OS X: 正确地设置 PATH</a>这两篇博客。</p>
 
     </div>
 
@@ -362,10 +398,9 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/CDN/" rel="tag"><i class="fa fa-tag"></i> CDN</a>
-              <a href="/tags/%E5%9B%9E%E6%BA%90/" rel="tag"><i class="fa fa-tag"></i> 回源</a>
-              <a href="/tags/%E7%BC%93%E5%AD%98/" rel="tag"><i class="fa fa-tag"></i> 缓存</a>
-              <a href="/tags/%E6%A6%82%E5%BF%B5/" rel="tag"><i class="fa fa-tag"></i> 概念</a>
+              <a href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag"><i class="fa fa-tag"></i> 配置</a>
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+              <a href="/tags/OS-X/" rel="tag"><i class="fa fa-tag"></i> OS X</a>
           </div>
 
         
@@ -374,13 +409,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/30/H2O/" rel="prev" title="【每日一题】H2O 生成">
-      <i class="fa fa-chevron-left"></i> 【每日一题】H2O 生成
+    <a href="/2020/09/01/sort-algo/" rel="prev" title="排序算法总结">
+      <i class="fa fa-chevron-left"></i> 排序算法总结
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/02/13/git%E4%B9%B1%E7%A0%81/" rel="next" title="Windows下使用Git出现中文乱码">
-      Windows下使用Git出现中文乱码 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -440,7 +472,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#CDN"><span class="nav-number">1.</span> <span class="nav-text">CDN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#回源"><span class="nav-number">2.</span> <span class="nav-text">回源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参考图书与博客"><span class="nav-number">3.</span> <span class="nav-text">参考图书与博客</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
