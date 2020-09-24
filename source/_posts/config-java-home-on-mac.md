@@ -29,14 +29,14 @@ Shell：zsh
 
 看一下`/usr/libexec/java_home`究竟是个什么东西
 
-![2020-09-13-23-57-38](http://images.wpt6.cn/blog/2020-09-13-23-57-38.png)
+![](http://images.wpt6.cn/blog/2020-09-13-23-57-38.png)
 
 **为什么要使用/ usr / libexec / java_home？**
 此`java_home`可以返回在Java首选项中为当前用户指定的Java版本。
 
 例如：
 
-![2020-09-14-00-05-42](http://images.wpt6.cn/blog/2020-09-14-00-05-42.png)
+![](http://images.wpt6.cn/blog/2020-09-14-00-05-42.png)
 
 通过-V查看当前安装的所有Java的版本
 
