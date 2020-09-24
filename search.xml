@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MyBatis学习笔记</title>
+    <url>/2020/09/25/mybatis-note/</url>
+    <content><![CDATA[<p>记录MyBatis一些问题</p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+        <category>MyBatis</category>
+      </categories>
+      <tags>
+        <tag>MyBatis</tag>
+        <tag>Spring</tag>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在OS X上配置JAVA_HOME环境变量</title>
     <url>/2020/09/13/config-java-home-on-mac/</url>
     <content><![CDATA[<p>在Mac上配置Java开发环境的时候，遇到了一些问题，搜索一番下来之后，更困惑了，各类教程基本上是复制粘贴，而且还很老旧，或者按照Linux系列的系统进行配置，部分情况下配置无法生效，特意搜了一下官方文档，总结一下最新的配置方法。</p>

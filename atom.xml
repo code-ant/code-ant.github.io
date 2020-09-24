@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-09-24T16:53:14.780Z</updated>
+  <updated>2020-09-24T17:02:22.656Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MyBatis学习笔记</title>
+    <link href="http://yoursite.com/2020/09/25/mybatis-note/"/>
+    <id>http://yoursite.com/2020/09/25/mybatis-note/</id>
+    <published>2020-09-24T17:00:21.000Z</published>
+    <updated>2020-09-24T17:02:22.656Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录MyBatis一些问题</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;记录MyBatis一些问题&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="http://yoursite.com/categories/Spring/"/>
+    
+      <category term="MyBatis" scheme="http://yoursite.com/categories/Spring/MyBatis/"/>
+    
+    
+      <category term="MyBatis" scheme="http://yoursite.com/tags/MyBatis/"/>
+    
+      <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
+    
+      <category term="SpringMVC" scheme="http://yoursite.com/tags/SpringMVC/"/>
+    
+  </entry>
   
   <entry>
     <title>在OS X上配置JAVA_HOME环境变量</title>
