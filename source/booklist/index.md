@@ -11,29 +11,49 @@ type: booklist
 > ------
 > 
 
-### 在读 · · · (3本)
+### 在读 · · · (5本)
 
 - 技术类
 
-  《图解算法》
+  《图解算法》、《设计模式》、《JVM技术详解》
 
 - 非技术类
 
-  《三体》、《富爸爸穷爸爸》2/4
+  《三体·死神永生》、《富爸爸穷爸爸》2/4
 
 
-### 想读 · · · (3本)
+### 想读 · · · (2本)
 
 - 技术类
 
-  《Java多线程编程核心技术》、《设计模式》
+  《Java多线程编程核心技术》
 
 - 非技术类
 
   《富爸爸穷爸爸》
 
-### 已读 · · · (3本)
+### 已读 · · · (6本)
 
-1. 《富爸爸穷爸爸》 1/4![](https://progress-bar.dev/100/?scale=100&title=done&width=500)
-2. 《遥远的救世主》![](https://progress-bar.dev/100/?scale=100&title=done&width=500)
-3. 《天幕红尘》![](https://progress-bar.dev/100/?scale=100&title=reading&width=500)
+1. 《富爸爸穷爸爸》 1/4
+
+   ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
+
+2. 《遥远的救世主》
+
+   ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
+
+3. 《天幕红尘》
+
+   ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
+
+4. 《三体·地球往事》
+
+   ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
+
+5. 《三体·黑暗森林》
+
+   ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
+
+6. 《背叛》
+
+   ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
