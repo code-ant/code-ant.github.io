@@ -19,7 +19,9 @@ type: booklist
 
 - 非技术类
 
-  《三体·死神永生》、《富爸爸穷爸爸》2/4
+  《富爸爸穷爸爸》2/4
+
+
 
 
 ### 想读 · · · (2本)
@@ -55,5 +57,9 @@ type: booklist
    ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
 
 6. 《背叛》
+
+   ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
+   
+7. 《三体·死神永生》 
 
    ![](https://progress-bar.dev/100/?scale=100&title=done&width=100)
