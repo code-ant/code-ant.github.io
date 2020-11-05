@@ -96,9 +96,9 @@
         <category>配置</category>
       </categories>
       <tags>
-        <tag>配置</tag>
         <tag>java</tag>
         <tag>OS X</tag>
+        <tag>配置</tag>
       </tags>
   </entry>
   <entry>
@@ -275,9 +275,9 @@
         <category>配置</category>
       </categories>
       <tags>
+        <tag>配置</tag>
         <tag>git</tag>
         <tag>代理</tag>
-        <tag>配置</tag>
         <tag>npm</tag>
         <tag>github</tag>
       </tags>
@@ -567,8 +567,8 @@
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>idea</tag>
         <tag>git</tag>
+        <tag>idea</tag>
         <tag>乱码</tag>
         <tag>Windows</tag>
       </tags>
