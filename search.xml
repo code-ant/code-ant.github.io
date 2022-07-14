@@ -24,41 +24,51 @@
 <p><em>Mac的软件包常见的有两种，后缀名分别是pkg和dmg</em></p>
 <p>下载下来的安装包一般默认在“下载”文件夹里面，有两个地方可以找到</p>
 <ol>
-<li><p>Docker中，废纸篓左侧的图标</p>
-<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-33-28.png" alt="image-20220714100941212"></p>
+<li><p>Docker中，废纸篓左侧的图标，这个展开样式可以通过右键点击切换</p>
+<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-54-22.png" alt="image-20220714125422358"></p>
+<p><img src="http://images.wpt6.cn/blog/2022-07-14-13-04-32.png" alt="image-20220714130432301"></p>
 </li>
 </ol>
 </li>
 </ul>
-<pre><code>点击即可展开刚下载的文件列表（展开列表的样式可以在图标上右键选择）
-
-![image-20220714101029701](http://images.wpt6.cn/blog/2022-07-14-12-33-29.png)</code></pre><ol start="2">
+<ol start="2">
 <li><p>在访达中查看下载</p>
-<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-33-29.png" alt="image-20220714101458009"></p>
+<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-55-17.png" alt="image-20220714125517049"></p>
 </li>
 </ol>
 <p>  dmg安装方法：双击打开下载后的安装包，根据提示，拖动左侧应用图标到右侧图标上面，然后松手即可完成安装，等到安装完成后，在应用列表中可以找到</p>
-<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-33-28.png" alt="image-20220714101906360"></p>
+<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-55-39.png" alt="image-20220714125538836"></p>
 <p>  pkg安装方法：双击打开安装包，根据提示选择路径，按需输入密码完成安装（跟Windows安装相似）</p>
 <p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-33-28.png" alt="image-20220714102327506"></p>
 <ul>
 <li><p>使用homebrew安装</p>
 <p>首先安装homebrew，地址在：<a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a></p>
 <p>在网站上点击按钮复制安装命令</p>
-<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-33-29.png" alt="image-20220714102637902"></p>
+<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-55-55.png" alt="image-20220714125555347"></p>
 </li>
 </ul>
 <p>  从启动台找到“终端”，并 点击打开</p>
-<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-33-28.png" alt="image-20220714102736756"></p>
+<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-56-10.png" alt="image-20220714125609941"></p>
 <p>  使用鼠标右键粘贴，或者按键<code>Command+V</code>粘贴刚才复制的命令，回车执行</p>
-<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-33-28.png" alt="image-20220714102927204"></p>
+<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-56-26.png" alt="image-20220714125626543"></p>
 <p>  等待homebrew安装完成后，输入<code>brew install XXX</code>安装需要的软件，以安装git为例</p>
 <p>  输入<code>brew install git</code>，等待执行完，git就安装好了，其他软件也可以类似安装。</p>
-<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-33-28.png" alt="image-20220714103537720"></p>
+<p>  <img src="http://images.wpt6.cn/blog/2022-07-14-12-56-42.png" alt="image-20220714125641822"></p>
 <ul>
 <li><p>直接下载编译好的可执行文件</p>
 <p>一般会给tar.gz的压缩包，直接在下载里面双击打开压缩包就可以，Mac可以自动解压压缩包到同名文件夹中，可执行文件比较特殊，需要以命令行执行。</p>
 <p>如果解压出来是后缀为.app的格式，则可以双击运行。</p>
+</li>
+</ul>
+<h1 id="软件卸载"><a href="#软件卸载" class="headerlink" title="软件卸载"></a>软件卸载</h1><ul>
+<li><p>dmg安装的软件，直接在访达中找到应用程序，找到要卸载的应用，移到废纸篓🗑️即可</p>
+<p><img src="http://images.wpt6.cn/blog/2022-07-14-13-10-03.png" alt="image-20220714131002455"></p>
+</li>
+<li><p>pkg安装的软件</p>
+<p>尝试安装app cleaner应用去清理，或者uninstallpkg，使用这两个清理工具</p>
+</li>
+<li><p>homebrew安装的软件</p>
+<p>使用<code>brew uninstall XXX</code>卸载</p>
 </li>
 </ul>
 <h1 id="显示隐藏文件"><a href="#显示隐藏文件" class="headerlink" title="显示隐藏文件"></a>显示隐藏文件</h1><p>在Mac中隐藏文件以英文字符的句号<code>.</code>为开头命名，默认隐藏，需要显示的话</p>
@@ -69,7 +79,7 @@
 </ol>
 <ol start="2">
 <li><p>在 终端中显示隐藏文件，输入<code>ls -a</code>能够显示出所有的文件，包括隐藏文件</p>
-<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-33-28.png" alt="image-20220714104952347"></p>
+<p><img src="http://images.wpt6.cn/blog/2022-07-14-12-57-01.png" alt="image-20220714125701075"></p>
 </li>
 </ol>
 <h1 id="删除文件快捷键"><a href="#删除文件快捷键" class="headerlink" title="删除文件快捷键"></a>删除文件快捷键</h1><p>在访达中删除文件，除了用鼠标以外还可以使用键盘快速操作，选中文件，然后同时按下<code>Command+BackSpace</code>,BackSpace键就是删除字符的按键。</p>
