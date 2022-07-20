@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 6.2.0">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -70,7 +70,7 @@
 <meta property="og:description" content="Redis的基本数据类型">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-02T09:58:02.000Z">
-<meta property="article:modified_time" content="2021-04-02T10:21:20.910Z">
+<meta property="article:modified_time" content="2021-04-02T09:58:02.000Z">
 <meta property="article:author" content="王鹏泰">
 <meta property="article:tag" content="Redis">
 <meta property="article:tag" content="数据库">
@@ -257,9 +257,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-02 17:58:02 / 修改时间：18:21:20" itemprop="dateCreated datePublished" datetime="2021-04-02T17:58:02+08:00">2021-04-02</time>
+              <time title="创建时间：2021-04-02 17:58:02" itemprop="dateCreated datePublished" datetime="2021-04-02T17:58:02+08:00">2021-04-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,7 +285,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>999</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -307,7 +306,7 @@
       
         <ul>
 <li><p>Redis的基本数据类型</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <ul>
 <li><p>String</p>
@@ -329,10 +328,10 @@
 <li><p>list</p>
 <ul>
 <li><p>基本操作</p>
-<p>LPUSH/RPUSH——向左右添加一个元素</p>
+<p>LPUSH&#x2F;RPUSH——向左右添加一个元素</p>
 <p>LRANGE——从LIST中取出一定范围的元素</p>
 <p>LINDEX——从list中取出制定下标的元素</p>
-<p>LPOP/RPOP——从左右节点弹出一个元素</p>
+<p>LPOP&#x2F;RPOP——从左右节点弹出一个元素</p>
 </li>
 </ul>
 </li>
@@ -389,8 +388,7 @@
 <li><p>C语言O(n)，发现<code>‘\0</code>’停止计数</p>
 </li>
 <li><p>SDS的数据结构已经保存了字符串长度</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span>&#123;</span></span><br><span class="line"> <span class="keyword">int</span> len;</span><br><span class="line"> <span class="keyword">int</span> <span class="built_in">free</span>;</span><br><span class="line"> <span class="keyword">char</span> buf[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span>&#123;</span></span><br><span class="line"> <span class="type">int</span> len;</span><br><span class="line"> <span class="type">int</span> <span class="built_in">free</span>;</span><br><span class="line"> <span class="type">char</span> buf[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>杜绝缓冲区溢出</p>
@@ -412,7 +410,7 @@
 <h2 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h2><p>跳跃表的实现比较复杂，也是一个重点，需要刻意关注。</p>
 <ul>
 <li><p>为什么使用跳跃表</p>
-<p>zset需要支持随机插入和删除，所以不宜使用数组来实现。相比于红黑树/平衡树，跳跃表的优势在于<strong>性能</strong>和<strong>实现</strong>。</p>
+<p>zset需要支持随机插入和删除，所以不宜使用数组来实现。相比于红黑树&#x2F;平衡树，跳跃表的优势在于<strong>性能</strong>和<strong>实现</strong>。</p>
 <p><strong>性能</strong>：高并发的情况下，树的rebalance可能涉及整个树。跳跃表只会涉及到局部。</p>
 <p><strong>实现</strong>：在复杂度与红黑树相同的情况下，跳跃表实现起来更加简单，更直观。</p>
 </li>
@@ -503,7 +501,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跳跃表"><span class="nav-number">1.</span> <span class="nav-text">跳跃表</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%B7%83%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">跳跃表</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

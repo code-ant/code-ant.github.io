@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 6.2.0">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -70,7 +70,7 @@
 <meta property="og:description" content="原来，猪的日子也很不好过，吃了睡睡了吃，实在是太无聊了  【LeetCode】1117. H2O 生成现在有两种线程，氢 oxygen 和氧 hydrogen，你的目标是组织这两种线程来产生水分子。 存在一个屏障（barrier）使得每个线程必须等候直到一个完整水分子能够被产生出来。 氢和氧线程会被分别给予 releaseHydrogen 和 releaseOxygen 方法来允许它们突破屏障。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-30T13:56:46.000Z">
-<meta property="article:modified_time" content="2020-09-24T16:38:13.000Z">
+<meta property="article:modified_time" content="2020-01-30T13:56:46.000Z">
 <meta property="article:author" content="王鹏泰">
 <meta property="article:tag" content="多线程">
 <meta property="article:tag" content="LeetCode">
@@ -260,13 +260,6 @@
 
               <time title="创建时间：2020-01-30 21:56:46" itemprop="dateCreated datePublished" datetime="2020-01-30T21:56:46+08:00">2020-01-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-25 00:38:13" itemprop="dateModified" datetime="2020-09-25T00:38:13+08:00">2020-09-25</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -325,10 +318,10 @@
 <p>氢和氧线程会被分别给予 releaseHydrogen 和 releaseOxygen 方法来允许它们突破屏障。</p>
 <p>这些线程应该三三成组突破屏障并能立即组合产生一个水分子。</p>
 <p>你必须保证产生一个水分子所需线程的结合必须发生在下一个水分子产生之前。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>换句话说:</p>
-<p>​    如果一个氧线程到达屏障时没有氢线程到达，它必须等候直到两个氢线程到达。<br>​    如果一个氢线程到达屏障时没有其它线程到达，它必须等候直到一个氧线程和另一个氢线程到达。<br>​    书写满足这些限制条件的氢、氧线程同步代码。</p>
+<p>​	如果一个氧线程到达屏障时没有氢线程到达，它必须等候直到两个氢线程到达。<br>​	如果一个氢线程到达屏障时没有其它线程到达，它必须等候直到一个氧线程和另一个氢线程到达。<br>​	书写满足这些限制条件的氢、氧线程同步代码。</p>
 <p>示例 1:</p>
 <p><code>输入: &quot;HOH&quot;</code><br><code>输出: &quot;HHO&quot;</code><br><code>解释: &quot;HOH&quot; 和 &quot;OHH&quot; 依然都是有效解。</code><br>示例 2:</p>
 <p><code>输入: &quot;OOHHHH&quot;</code><br><code>输出: &quot;HHOHHO&quot;</code><br><code>解释: &quot;HOHHHO&quot;, &quot;OHHHHO&quot;, &quot;HHOHOH&quot;, &quot;HOHHOH&quot;, &quot;OHHHOH&quot;, &quot;HHOOHH&quot;, &quot;HOHOHH&quot; 和 &quot;OHHOHH&quot; 依然都是有效解。</code></p>
@@ -338,7 +331,7 @@
 <li>输入字符串中的 “H” 总数将会是 2n；</li>
 <li>输入字符串中的 “O” 总数将会是 n。</li>
 </ul>
-<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">H2O</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">H2O</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">hydrogen</span><span class="params">(Runnable releaseHydrogen)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (h == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.wait();</span><br><span class="line">        &#125;</span><br><span class="line">        releaseHydrogen.run();</span><br><span class="line">        ++h;</span><br><span class="line">        <span class="keyword">this</span>.notify();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">oxygen</span><span class="params">(Runnable releaseOxygen)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (h &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.wait();</span><br><span class="line">        &#125;</span><br><span class="line">        releaseOxygen.run();</span><br><span class="line">        h = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.notify();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">H2O</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">H2O</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">hydrogen</span><span class="params">(Runnable releaseHydrogen)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">while</span> (h == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.wait();</span><br><span class="line">        &#125;</span><br><span class="line">        releaseHydrogen.run();</span><br><span class="line">        ++h;</span><br><span class="line">        <span class="built_in">this</span>.notify();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">oxygen</span><span class="params">(Runnable releaseOxygen)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">while</span> (h &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.wait();</span><br><span class="line">        &#125;</span><br><span class="line">        releaseOxygen.run();</span><br><span class="line">        h = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.notify();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -426,7 +419,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#【LeetCode】1117-H2O-生成"><span class="nav-number">1.</span> <span class="nav-text">【LeetCode】1117. H2O 生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%90LeetCode%E3%80%911117-H2O-%E7%94%9F%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">【LeetCode】1117. H2O 生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

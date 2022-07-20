@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 6.2.0">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -70,7 +70,7 @@
 <meta property="og:description" content="Redis在高并发场景下对于性能要求较高，总结一下常用的Redis性能调优方案。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-02T10:08:38.000Z">
-<meta property="article:modified_time" content="2021-04-02T10:21:20.910Z">
+<meta property="article:modified_time" content="2021-04-02T10:08:38.000Z">
 <meta property="article:author" content="王鹏泰">
 <meta property="article:tag" content="Redis">
 <meta property="article:tag" content="优化">
@@ -259,9 +259,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-02 18:08:38 / 修改时间：18:21:20" itemprop="dateCreated datePublished" datetime="2021-04-02T18:08:38+08:00">2021-04-02</time>
+              <time title="创建时间：2021-04-02 18:08:38" itemprop="dateCreated datePublished" datetime="2021-04-02T18:08:38+08:00">2021-04-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,7 +287,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.2k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -308,7 +307,7 @@
 
       
         <p>Redis在高并发场景下对于性能要求较高，总结一下常用的Redis性能调优方案。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="优化方式"><a href="#优化方式" class="headerlink" title="优化方式"></a>优化方式</h3><ol>
 <li>缩短键值对的存储长度</li>
@@ -333,7 +332,7 @@
 <li>内容大，内存占用变大，会频繁触发内存淘汰机制，给Redis带来更多的运行负担。</li>
 </ul>
 <p>所以，在保证完整语义的情况下，尽量缩短键值对的存储长度，必要时对数据进行序列化和压缩，然后在存储。</p>
-<h4 id="2-使用lazy-free特性"><a href="#2-使用lazy-free特性" class="headerlink" title="2.使用lazy free特性"></a>2.使用lazy free特性</h4><p>lazy free是Redis 4.0新增的功能，意思为惰性删除、延迟删除，在删除的时候提供异步延时释放键值的功能，把键值释放操作放在BIO（Background I/O）单独的子线程中处理，减少删除对主线程的阻塞，可以有效避免删除big key时带来的性能和可用性问题。</p>
+<h4 id="2-使用lazy-free特性"><a href="#2-使用lazy-free特性" class="headerlink" title="2.使用lazy free特性"></a>2.使用lazy free特性</h4><p>lazy free是Redis 4.0新增的功能，意思为惰性删除、延迟删除，在删除的时候提供异步延时释放键值的功能，把键值释放操作放在BIO（Background I&#x2F;O）单独的子线程中处理，减少删除对主线程的阻塞，可以有效避免删除big key时带来的性能和可用性问题。</p>
 <p>四种场景：</p>
 <ul>
 <li>lazyfree-lazy-eviction：当Redis运行内存超过maxmemory时，是否开启lazy free机制删除。</li>
@@ -393,7 +392,7 @@
 <p>哨兵模式主要针对主从功能的升级，当主节点崩溃以后，无需人工干预，能够自动恢复Redis的使用</p>
 <p>Redis Cluster集群通过将数据库分散存储到多个节点，平衡各个节点的负载压力。</p>
 <blockquote>
-<p>Redis Cluster 采用虚拟哈希槽分区，所有的键根据哈希函数映射到 0 ~ 16383 整数槽内，计算公式：slot = CRC16(key) &amp; 16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。这样 Redis 就可以把读写压力从一台服务器，分散给多台服务器了，因此性能会有很大的提升。</p>
+<p>Redis Cluster 采用虚拟哈希槽分区，所有的键根据哈希函数映射到 0 ~ 16383 整数槽内，计算公式：slot &#x3D; CRC16(key) &amp; 16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。这样 Redis 就可以把读写压力从一台服务器，分散给多台服务器了，因此性能会有很大的提升。</p>
 </blockquote>
 
     </div>
@@ -483,7 +482,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#优化方式"><span class="nav-number">1.</span> <span class="nav-text">优化方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化方案解析"><span class="nav-number">2.</span> <span class="nav-text">优化方案解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-缩短键值对的存储产长度"><span class="nav-number">2.1.</span> <span class="nav-text">1.缩短键值对的存储产长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用lazy-free特性"><span class="nav-number">2.2.</span> <span class="nav-text">2.使用lazy free特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置键值的过期时间"><span class="nav-number">2.3.</span> <span class="nav-text">3.设置键值的过期时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-禁用长耗时的查询命令"><span class="nav-number">2.4.</span> <span class="nav-text">4.禁用长耗时的查询命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-使用slowlog优化查询耗时"><span class="nav-number">2.5.</span> <span class="nav-text">5.使用slowlog优化查询耗时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-使用pipline批量操作数据"><span class="nav-number">2.6.</span> <span class="nav-text">6.使用pipline批量操作数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-避免大量数据同时失效"><span class="nav-number">2.7.</span> <span class="nav-text">7.避免大量数据同时失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-客户端使用优化"><span class="nav-number">2.8.</span> <span class="nav-text">8.客户端使用优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-限制Redis内存大小"><span class="nav-number">2.9.</span> <span class="nav-text">9.限制Redis内存大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-使用物理机而非虚拟机"><span class="nav-number">2.10.</span> <span class="nav-text">10.使用物理机而非虚拟机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-检查数据持久化策略"><span class="nav-number">2.11.</span> <span class="nav-text">11.检查数据持久化策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-禁用THP特性"><span class="nav-number">2.12.</span> <span class="nav-text">12.禁用THP特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-使用分布式架构增加读写速度"><span class="nav-number">2.13.</span> <span class="nav-text">13.使用分布式架构增加读写速度</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">优化方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">优化方案解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%BC%A9%E7%9F%AD%E9%94%AE%E5%80%BC%E5%AF%B9%E7%9A%84%E5%AD%98%E5%82%A8%E4%BA%A7%E9%95%BF%E5%BA%A6"><span class="nav-number">2.1.</span> <span class="nav-text">1.缩短键值对的存储产长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8lazy-free%E7%89%B9%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">2.使用lazy free特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%AE%BE%E7%BD%AE%E9%94%AE%E5%80%BC%E7%9A%84%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4"><span class="nav-number">2.3.</span> <span class="nav-text">3.设置键值的过期时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%A6%81%E7%94%A8%E9%95%BF%E8%80%97%E6%97%B6%E7%9A%84%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">4.禁用长耗时的查询命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E4%BD%BF%E7%94%A8slowlog%E4%BC%98%E5%8C%96%E6%9F%A5%E8%AF%A2%E8%80%97%E6%97%B6"><span class="nav-number">2.5.</span> <span class="nav-text">5.使用slowlog优化查询耗时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E4%BD%BF%E7%94%A8pipline%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE"><span class="nav-number">2.6.</span> <span class="nav-text">6.使用pipline批量操作数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E9%81%BF%E5%85%8D%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%90%8C%E6%97%B6%E5%A4%B1%E6%95%88"><span class="nav-number">2.7.</span> <span class="nav-text">7.避免大量数据同时失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96"><span class="nav-number">2.8.</span> <span class="nav-text">8.客户端使用优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E9%99%90%E5%88%B6Redis%E5%86%85%E5%AD%98%E5%A4%A7%E5%B0%8F"><span class="nav-number">2.9.</span> <span class="nav-text">9.限制Redis内存大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E4%BD%BF%E7%94%A8%E7%89%A9%E7%90%86%E6%9C%BA%E8%80%8C%E9%9D%9E%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.10.</span> <span class="nav-text">10.使用物理机而非虚拟机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E6%A3%80%E6%9F%A5%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E7%AD%96%E7%95%A5"><span class="nav-number">2.11.</span> <span class="nav-text">11.检查数据持久化策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E7%A6%81%E7%94%A8THP%E7%89%B9%E6%80%A7"><span class="nav-number">2.12.</span> <span class="nav-text">12.禁用THP特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E4%BD%BF%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E5%A2%9E%E5%8A%A0%E8%AF%BB%E5%86%99%E9%80%9F%E5%BA%A6"><span class="nav-number">2.13.</span> <span class="nav-text">13.使用分布式架构增加读写速度</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
