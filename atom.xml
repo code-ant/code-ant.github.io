@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-07-14T04:28:01.000Z</updated>
+  <updated>2022-07-21T02:18:35.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,9 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>同一台电脑为Git配置多个SSH Key</title>
+    <link href="http://yoursite.com/config-multiple-ssh-keys/"/>
+    <id>http://yoursite.com/config-multiple-ssh-keys/</id>
+    <published>2022-07-21T02:18:35.000Z</published>
+    <updated>2022-07-21T02:18:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ol><li><p>使用同一台电脑向不同的git平台提交代码</p></li><li><p>使用同一台电脑向同一个git平台的不同账号提交代码</p></li></ol><span id="more"></span><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="为多个平台配置SSH-Key"><a href="#为多个平台配置SSH-Key" class="headerlink" title="为多个平台配置SSH Key"></a>为多个平台配置SSH Key</h2><p>以Github和Gitlab两个平台为例，同时为两个平台创建SSH Key</p><ol><li><p>生成Github的SSH-Key</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&#x27;github_mail@domain.com&#x27;</span> -f ~/.ssh/github_id_rsa</span></span><br></pre></td></tr></table></figure></li><li><p>生成Gitlab的SSH-Key</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&#x27;gitlab_mail@domain.com&#x27;</span> -f ~/.ssh/gitlab_id_rsa</span></span><br></pre></td></tr></table></figure></li><li><p>创建<code>config</code>文件管理多个Key</p><p>在<code>~/.ssh</code>文件夹下新建一个<code>config</code>文件，如果有就直接在末尾追加内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~/.ssh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> config</span></span><br></pre></td></tr></table></figure><p>在<code>config</code>文件中写入如下内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">github</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">gitlab</span></span><br><span class="line">Host gitlab.some_url.com</span><br><span class="line">HostName gitlab.some_url.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure></li><li><p>使用ssh命令测试</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@github.com</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@gitlab.com</span></span><br></pre></td></tr></table></figure><p>以GitHub为例，如果连接成功，会有如下返回内容</p><p><code>Hi code-ant! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p></li></ol><h2 id="为统一平台多个账户配置SSH-Key"><a href="#为统一平台多个账户配置SSH-Key" class="headerlink" title="为统一平台多个账户配置SSH Key"></a>为统一平台多个账户配置SSH Key</h2><p>还有一些时候，我们在GitHub有多个账号，需要同时给两个账号创建SSH Key.</p><p>这种情况下的配置和上面为两个平台配置SSH Key步骤类似，主要区别集中在使用Host区分不同账号上面.</p><p>假设此时有两个GitHub账号，一个叫做<code>code-ant</code>，另一个叫做<code>nobodyKnowsMe</code>.</p><ol><li><p>为<code>code-ant</code>账号创建SSH Key</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&#x27;code-ant@domain.com&#x27;</span> -f ~/.ssh/code_ant_id_rsa</span></span><br></pre></td></tr></table></figure></li><li><p>为<code>nobodyKnowsMe</code>创建SSH Key</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sh-keygen -t rsa -C <span class="string">&#x27;nobodyKnowsMe@domain.com&#x27;</span> -f ~/.ssh/nobody_id_rsa</span></span><br></pre></td></tr></table></figure></li><li><p>创建<code>config</code>文件管理多个Key</p><p>在<code>~/.ssh</code>文件夹下新建一个<code>config</code>文件，如果有就直接在末尾追加内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~/.ssh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> config</span></span><br></pre></td></tr></table></figure><p>在<code>config</code>文件中写入如下内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">code-ant</span></span><br><span class="line">Host code-ant.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/code_ant_id_rsa</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nobodyKnowsMe</span></span><br><span class="line">Host nobodyKnowsMe.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/nobody_id_rsa</span><br></pre></td></tr></table></figure><p>说明：git会根据<code>config</code>文件中的<code>Host</code>和<code>HostName</code>做替换</p></li><li><p>使用ssh命令测试</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@code-ant.github.com</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@nobodyKnowsMe.gitlab.com</span></span><br></pre></td></tr></table></figure><p>以<code>code-ant</code>为例，如果连接成功，会有如下返回内容</p><p><code>Hi code-ant! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p></li><li><p>使用git访问不同的账号</p><p>使用<code>code-ant</code>账号拉取、提交代码</p><p><code>git clone git@code-ant.github.com/code-ant/XXX.git</code></p><p>使用<code>nobodyKnowsMe</code>账号拉取提交代码</p><p><code>git clone git@nobodyKnowsMe.github.com/nobodyKnowsMe/xxx.git</code></p></li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用同一台电脑向不同的git平台提交代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用同一台电脑向同一个git平台的不同账号提交代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="开发环境" scheme="http://yoursite.com/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    
+    
+    <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+    <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+    <category term="多账号" scheme="http://yoursite.com/tags/%E5%A4%9A%E8%B4%A6%E5%8F%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac使用教程</title>
-    <link href="http://yoursite.com/2022/07/14/mac-use-guide/"/>
-    <id>http://yoursite.com/2022/07/14/mac-use-guide/</id>
+    <link href="http://yoursite.com/mac-use-guide/"/>
+    <id>http://yoursite.com/mac-use-guide/</id>
     <published>2022-07-14T04:28:01.000Z</published>
     <updated>2022-07-14T04:28:01.000Z</updated>
     
@@ -39,8 +69,8 @@
   
   <entry>
     <title>Java集合知识点整理</title>
-    <link href="http://yoursite.com/2021/04/02/Java%E9%9B%86%E5%90%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"/>
-    <id>http://yoursite.com/2021/04/02/Java%E9%9B%86%E5%90%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</id>
+    <link href="http://yoursite.com/Java%E9%9B%86%E5%90%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"/>
+    <id>http://yoursite.com/Java%E9%9B%86%E5%90%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</id>
     <published>2021-04-02T10:11:02.000Z</published>
     <updated>2021-04-02T10:11:02.000Z</updated>
     
@@ -62,8 +92,8 @@
   
   <entry>
     <title>Redis性能优化</title>
-    <link href="http://yoursite.com/2021/04/02/redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://yoursite.com/2021/04/02/redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</id>
+    <link href="http://yoursite.com/redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://yoursite.com/redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</id>
     <published>2021-04-02T10:08:38.000Z</published>
     <updated>2021-04-02T10:08:38.000Z</updated>
     
@@ -89,8 +119,8 @@
   
   <entry>
     <title>常见设计模式</title>
-    <link href="http://yoursite.com/2021/04/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://yoursite.com/2021/04/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
+    <link href="http://yoursite.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://yoursite.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
     <published>2021-04-02T10:05:40.000Z</published>
     <updated>2021-04-02T10:05:40.000Z</updated>
     
@@ -113,8 +143,8 @@
   
   <entry>
     <title>Redis-随笔</title>
-    <link href="http://yoursite.com/2021/04/02/redis-%E9%9A%8F%E7%AC%94/"/>
-    <id>http://yoursite.com/2021/04/02/redis-%E9%9A%8F%E7%AC%94/</id>
+    <link href="http://yoursite.com/redis-%E9%9A%8F%E7%AC%94/"/>
+    <id>http://yoursite.com/redis-%E9%9A%8F%E7%AC%94/</id>
     <published>2021-04-02T09:58:02.000Z</published>
     <updated>2021-04-02T09:58:02.000Z</updated>
     
@@ -137,8 +167,8 @@
   
   <entry>
     <title>MyBatis学习笔记</title>
-    <link href="http://yoursite.com/2020/09/25/mybatis-note/"/>
-    <id>http://yoursite.com/2020/09/25/mybatis-note/</id>
+    <link href="http://yoursite.com/mybatis-note/"/>
+    <id>http://yoursite.com/mybatis-note/</id>
     <published>2020-09-24T17:00:21.000Z</published>
     <updated>2020-09-24T17:00:21.000Z</updated>
     
@@ -168,8 +198,8 @@
   
   <entry>
     <title>在OS X上配置JAVA_HOME环境变量</title>
-    <link href="http://yoursite.com/2020/09/13/config-java-home-on-mac/"/>
-    <id>http://yoursite.com/2020/09/13/config-java-home-on-mac/</id>
+    <link href="http://yoursite.com/config-java-home-on-mac/"/>
+    <id>http://yoursite.com/config-java-home-on-mac/</id>
     <published>2020-09-13T15:31:33.000Z</published>
     <updated>2020-09-13T15:31:33.000Z</updated>
     
@@ -193,8 +223,8 @@
   
   <entry>
     <title>排序算法总结</title>
-    <link href="http://yoursite.com/2020/09/01/sort-algo/"/>
-    <id>http://yoursite.com/2020/09/01/sort-algo/</id>
+    <link href="http://yoursite.com/sort-algo/"/>
+    <id>http://yoursite.com/sort-algo/</id>
     <published>2020-08-31T16:36:38.000Z</published>
     <updated>2020-08-31T16:36:38.000Z</updated>
     
@@ -220,8 +250,8 @@
   
   <entry>
     <title>Github、npm配置代理</title>
-    <link href="http://yoursite.com/2020/08/23/proxy/"/>
-    <id>http://yoursite.com/2020/08/23/proxy/</id>
+    <link href="http://yoursite.com/proxy/"/>
+    <id>http://yoursite.com/proxy/</id>
     <published>2020-08-23T11:37:11.000Z</published>
     <updated>2020-08-23T11:37:11.000Z</updated>
     
@@ -240,18 +270,18 @@
     
     <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
+    <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
     <category term="代理" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%90%86/"/>
     
     <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
-    
-    <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>乐观锁与悲观锁</title>
-    <link href="http://yoursite.com/2020/08/22/%E9%94%81/"/>
-    <id>http://yoursite.com/2020/08/22/%E9%94%81/</id>
+    <link href="http://yoursite.com/%E9%94%81/"/>
+    <id>http://yoursite.com/%E9%94%81/</id>
     <published>2020-08-21T17:41:28.000Z</published>
     <updated>2020-08-21T17:41:28.000Z</updated>
     
@@ -275,8 +305,8 @@
   
   <entry>
     <title>二叉树</title>
-    <link href="http://yoursite.com/2020/08/21/binary-tree/"/>
-    <id>http://yoursite.com/2020/08/21/binary-tree/</id>
+    <link href="http://yoursite.com/binary-tree/"/>
+    <id>http://yoursite.com/binary-tree/</id>
     <published>2020-08-21T06:50:03.000Z</published>
     <updated>2020-08-21T06:50:03.000Z</updated>
     
@@ -303,8 +333,8 @@
   
   <entry>
     <title>git使用笔记</title>
-    <link href="http://yoursite.com/2020/08/04/git-notes/"/>
-    <id>http://yoursite.com/2020/08/04/git-notes/</id>
+    <link href="http://yoursite.com/git-notes/"/>
+    <id>http://yoursite.com/git-notes/</id>
     <published>2020-08-04T13:33:21.000Z</published>
     <updated>2020-08-04T13:33:21.000Z</updated>
     
@@ -326,8 +356,8 @@
   
   <entry>
     <title>Linux使用笔记</title>
-    <link href="http://yoursite.com/2020/04/25/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2020/04/25/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</id>
+    <link href="http://yoursite.com/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</id>
     <published>2020-04-25T14:35:50.000Z</published>
     <updated>2020-04-25T14:35:50.000Z</updated>
     
@@ -354,8 +384,8 @@
   
   <entry>
     <title>使用命令行打开Ubuntu的护眼模式（Night Light）</title>
-    <link href="http://yoursite.com/2020/03/28/turnon-nightlight/"/>
-    <id>http://yoursite.com/2020/03/28/turnon-nightlight/</id>
+    <link href="http://yoursite.com/turnon-nightlight/"/>
+    <id>http://yoursite.com/turnon-nightlight/</id>
     <published>2020-03-27T17:49:30.000Z</published>
     <updated>2020-03-27T17:49:30.000Z</updated>
     
@@ -384,8 +414,8 @@
   
   <entry>
     <title>Windows下使用Git出现中文乱码</title>
-    <link href="http://yoursite.com/2020/02/13/git%E4%B9%B1%E7%A0%81/"/>
-    <id>http://yoursite.com/2020/02/13/git%E4%B9%B1%E7%A0%81/</id>
+    <link href="http://yoursite.com/git%E4%B9%B1%E7%A0%81/"/>
+    <id>http://yoursite.com/git%E4%B9%B1%E7%A0%81/</id>
     <published>2020-02-12T16:25:01.000Z</published>
     <updated>2020-02-12T16:25:01.000Z</updated>
     
@@ -421,8 +451,8 @@
   
   <entry>
     <title>什么是回源？CDN回源与域名回源各是什么？</title>
-    <link href="http://yoursite.com/2020/02/03/back-to-source/"/>
-    <id>http://yoursite.com/2020/02/03/back-to-source/</id>
+    <link href="http://yoursite.com/back-to-source/"/>
+    <id>http://yoursite.com/back-to-source/</id>
     <published>2020-02-03T09:48:38.000Z</published>
     <updated>2020-02-03T09:48:38.000Z</updated>
     
@@ -454,8 +484,8 @@
   
   <entry>
     <title>【每日一题】H2O 生成</title>
-    <link href="http://yoursite.com/2020/01/30/H2O/"/>
-    <id>http://yoursite.com/2020/01/30/H2O/</id>
+    <link href="http://yoursite.com/H2O/"/>
+    <id>http://yoursite.com/H2O/</id>
     <published>2020-01-30T13:56:46.000Z</published>
     <updated>2020-01-30T13:56:46.000Z</updated>
     
@@ -486,8 +516,8 @@
   
   <entry>
     <title>【每日一题】交替打印FooBar</title>
-    <link href="http://yoursite.com/2020/01/29/printfoobar/"/>
-    <id>http://yoursite.com/2020/01/29/printfoobar/</id>
+    <link href="http://yoursite.com/printfoobar/"/>
+    <id>http://yoursite.com/printfoobar/</id>
     <published>2020-01-29T03:30:50.000Z</published>
     <updated>2020-01-29T03:30:50.000Z</updated>
     
@@ -516,8 +546,8 @@
   
   <entry>
     <title>【每日一题】交替打印字符串</title>
-    <link href="http://yoursite.com/2020/01/28/FizzBuzz/"/>
-    <id>http://yoursite.com/2020/01/28/FizzBuzz/</id>
+    <link href="http://yoursite.com/FizzBuzz/"/>
+    <id>http://yoursite.com/FizzBuzz/</id>
     <published>2020-01-28T07:38:27.000Z</published>
     <updated>2020-01-28T07:38:27.000Z</updated>
     
@@ -540,43 +570,6 @@
     <category term="多线程" scheme="http://yoursite.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
     <category term="LeetCode" scheme="http://yoursite.com/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【每日一题】int32 to IPv4</title>
-    <link href="http://yoursite.com/2020/01/27/int32-to-IPv4/"/>
-    <id>http://yoursite.com/2020/01/27/int32-to-IPv4/</id>
-    <published>2020-01-27T03:45:33.000Z</published>
-    <updated>2020-01-27T03:45:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="【CodeWars】int32-to-IPv4"><a href="#【CodeWars】int32-to-IPv4" class="headerlink" title="【CodeWars】int32 to IPv4"></a>【CodeWars】int32 to IPv4</h3><p>Take the following IPv4 address: <code>128.32.10.1</code></p><p>This address has 4 octets where each octet is a single byte (or 8 bits).</p><ul><li>1st octet <code>128</code> has the binary representation: <code>10000000</code></li><li>2nd octet <code>32</code> has the binary representation: <code>00100000</code></li><li>3rd octet <code>10</code> has the binary representation: <code>00001010</code></li><li>4th octet <code>1</code> has the binary representation: <code>00000001</code></li></ul><p>So <code>128.32.10.1</code> &#x3D;&#x3D; <code>10000000.00100000.00001010.00000001</code></p><p>Because the above IP address has 32 bits, we can represent it as the unsigned 32 bit number: <code>2149583361</code></p><p>Complete the function that takes an unsigned 32 bit number and returns a string representation of its IPv4 address.</p><span id="more"></span><h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2149583361 ==&gt; &quot;128.32.10.1&quot;</span><br><span class="line">32         ==&gt; &quot;0.0.0.32&quot;</span><br><span class="line">0          ==&gt; &quot;0.0.0.0&quot;</span><br></pre></td></tr></table></figure><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>按照题目描述，点分十进制的IP地址转换成点分二进制之后，去掉分隔符后转化成unsigned 32位整数。例如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">128.32.10.1 ---&gt; 10000000.00100000.00001010.00000001 ---&gt; 10000000001000000000101000000001 ---&gt; 2149583361</span><br></pre></td></tr></table></figure><p>此题最终思路只需将上述转化过程逆序实现即可。</p><p>利用与运算取最后8位二进制：2149583361 &amp; 0xff</p><p>利用无符号右移、与运算取倒数第二个8位二进制：2149583361&gt;&gt;&gt;8 &amp; 0xff</p><p>同理：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Kata</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">longToIP</span><span class="params">(<span class="type">long</span> ip)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> String.format(<span class="string">&quot;%d.%d.%d.%d&quot;</span>,ip &gt;&gt;&gt; <span class="number">24</span> &amp; <span class="number">0xff</span>,ip &gt;&gt;&gt; <span class="number">16</span> &amp; <span class="number">0xff</span>,ip &gt;&gt;&gt; <span class="number">8</span> &amp; <span class="number">0xff</span>,ip &amp; <span class="number">0xff</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;【CodeWars】int32-to-IPv4&quot;&gt;&lt;a href=&quot;#【CodeWars】int32-to-IPv4&quot; class=&quot;headerlink&quot; title=&quot;【CodeWars】int32 to IPv4&quot;&gt;&lt;/a&gt;【CodeWars】int32 to IPv4&lt;/h3&gt;&lt;p&gt;Take the following IPv4 address: &lt;code&gt;128.32.10.1&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;This address has 4 octets where each octet is a single byte (or 8 bits).&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1st octet &lt;code&gt;128&lt;/code&gt; has the binary representation: &lt;code&gt;10000000&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;2nd octet &lt;code&gt;32&lt;/code&gt; has the binary representation: &lt;code&gt;00100000&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;3rd octet &lt;code&gt;10&lt;/code&gt; has the binary representation: &lt;code&gt;00001010&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;4th octet &lt;code&gt;1&lt;/code&gt; has the binary representation: &lt;code&gt;00000001&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;So &lt;code&gt;128.32.10.1&lt;/code&gt; &amp;#x3D;&amp;#x3D; &lt;code&gt;10000000.00100000.00001010.00000001&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Because the above IP address has 32 bits, we can represent it as the unsigned 32 bit number: &lt;code&gt;2149583361&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Complete the function that takes an unsigned 32 bit number and returns a string representation of its IPv4 address.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="每日一题" scheme="http://yoursite.com/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
-    
-    <category term="CodeWars" scheme="http://yoursite.com/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/CodeWars/"/>
-    
-    
-    <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="CodeWars" scheme="http://yoursite.com/tags/CodeWars/"/>
-    
-    <category term="BINARY" scheme="http://yoursite.com/tags/BINARY/"/>
     
   </entry>
   

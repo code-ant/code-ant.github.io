@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>【每日一题】交替打印字符串</title>
-    <url>/2020/01/28/FizzBuzz/</url>
+    <url>/FizzBuzz/</url>
     <content><![CDATA[<blockquote>
 <p>肺炎赋闲在家，水一些简单题打发时间吧</p>
 </blockquote>
@@ -31,7 +31,7 @@
   </entry>
   <entry>
     <title>【每日一题】H2O 生成</title>
-    <url>/2020/01/30/H2O/</url>
+    <url>/H2O/</url>
     <content><![CDATA[<blockquote>
 <p>原来，猪的日子也很不好过，吃了睡睡了吃，实在是太无聊了</p>
 </blockquote>
@@ -67,7 +67,7 @@
   </entry>
   <entry>
     <title>HelloWorld</title>
-    <url>/2020/01/25/HelloWorld/</url>
+    <url>/HelloWorld/</url>
     <content><![CDATA[<p>经过一番折腾，终于把GitHub Page 弄好了</p>
 <span id="more"></span>
 
@@ -82,7 +82,7 @@
   </entry>
   <entry>
     <title>Java集合知识点整理</title>
-    <url>/2021/04/02/Java%E9%9B%86%E5%90%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</url>
+    <url>/Java%E9%9B%86%E5%90%88%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>Java常见的关于集合框架的面试知识点整理。</p>
 <span id="more"></span>
 
@@ -149,7 +149,7 @@
   </entry>
   <entry>
     <title>Linux使用笔记</title>
-    <url>/2020/04/25/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
+    <url>/Linux%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
 <p>记录在Linux的使用过程中遇到的问题，以及应对办法</p>
 <p>每一次遇到问题，先写下对应的解决方法，顺手写清楚为什么要这么解决，先给自己挖坑，如果有时间了，就回来填坑，从原理出发解释为什么这么解决</p>
@@ -197,7 +197,7 @@
   </entry>
   <entry>
     <title>什么是回源？CDN回源与域名回源各是什么？</title>
-    <url>/2020/02/03/back-to-source/</url>
+    <url>/back-to-source/</url>
     <content><![CDATA[<blockquote>
 <p>配置七牛云的时候，一直不是很清楚回源相关的概念，学习记录一下。</p>
 </blockquote>
@@ -242,90 +242,8 @@
       </tags>
   </entry>
   <entry>
-    <title>二叉树</title>
-    <url>/2020/08/21/binary-tree/</url>
-    <content><![CDATA[<p>数据结构总结——二叉树</p>
-<p>总结常见的二叉树相关的算法以及代码实现</p>
-<span id="more"></span>
-
-<p><strong>二叉树定义</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="type">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><ul>
-<li>递归</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归方法(同理可得中序遍历和后序遍历的递归方法)</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">preorderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">null</span>) &#123;</span><br><span class="line">        result.add(root.val);</span><br><span class="line">        preorderTraversal(root.left);</span><br><span class="line">        preorderTraversal(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>迭代</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//迭代方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title function_">preOrderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;();</span><br><span class="line">    LinkedList&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stack.push(root);</span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty())&#123;</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">temp</span> <span class="operator">=</span> stack.pop();</span><br><span class="line">        result.add(temp.val);</span><br><span class="line">        <span class="keyword">if</span>(temp.right!=<span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(temp.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(temp.left!=<span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(temp.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">inorderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">null</span>) &#123;</span><br><span class="line">        inorderTraversal(root.left);</span><br><span class="line">        result.add(root.val);</span><br><span class="line">        inorderTraversal(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//迭代方法同前序遍历</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">postorderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">null</span>) &#123;</span><br><span class="line">        postorderTraversal(root.left);</span><br><span class="line">        postorderTraversal(root.right);</span><br><span class="line">        result.add(root.val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代方法同前序遍历</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//DFS</span></span><br><span class="line">同前序遍历</span><br></pre></td></tr></table></figure>
-
-<h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//BFS</span></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">levelOrder</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> q.size();</span><br><span class="line">        List&lt;Integer&gt; level = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; size; ++i) &#123;</span><br><span class="line">            <span class="type">TreeNode</span> <span class="variable">cur</span> <span class="operator">=</span> q.peek();</span><br><span class="line">            q.poll();</span><br><span class="line">            <span class="keyword">if</span> (cur == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            level.add(cur.val);</span><br><span class="line">            q.offer(cur.left);</span><br><span class="line">            q.offer(cur.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!level.isEmpty()) &#123;</span><br><span class="line">            res.add(level);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="计算树的高度"><a href="#计算树的高度" class="headerlink" title="计算树的高度"></a>计算树的高度</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxDepth</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">leftde</span> <span class="operator">=</span> maxDepth(root.left);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rightde</span> <span class="operator">=</span> maxDepth(root.right);</span><br><span class="line">    <span class="keyword">return</span> Math.max(leftde, rightde) +<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="计算树的直径"><a href="#计算树的直径" class="headerlink" title="计算树的直径"></a>计算树的直径</h3><ul>
-<li><a href="https://leetcode-cn.com/problems/diameter-of-binary-tree/">leetcode-543</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> result;</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">diameterOfBinaryTree</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    depth(root);</span><br><span class="line">    <span class="keyword">return</span> result&gt;<span class="number">0</span>?result-<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">depth</span><span class="params">(TreeNode node)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">L</span> <span class="operator">=</span> depth(node.left);</span><br><span class="line">    <span class="type">int</span> <span class="variable">R</span> <span class="operator">=</span> depth(node.right);</span><br><span class="line">    result = Math.max(result,L+R+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> Math.max(R,L) +<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="镜像二叉树"><a href="#镜像二叉树" class="headerlink" title="镜像二叉树"></a>镜像二叉树</h3><ul>
-<li><a href="https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/">leetcode</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> TreeNode <span class="title function_">mirrorTree</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">TreeNode</span> <span class="variable">temp</span> <span class="operator">=</span> root.left;</span><br><span class="line">    root.left = root.right;</span><br><span class="line">    root.right = temp;</span><br><span class="line">    mirrorTree(root.left);</span><br><span class="line">    mirrorTree(root.right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="判断一个树是否镜像"><a href="#判断一个树是否镜像" class="headerlink" title="判断一个树是否镜像"></a>判断一个树是否镜像</h3><ul>
-<li><a href="https://leetcode-cn.com/problems/symmetric-tree/">leetcode-101</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSymmetric</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(root ==<span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compare(root.left,root.right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">compare</span><span class="params">(TreeNode mleft, TreeNode mright)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(mleft ==<span class="literal">null</span>&amp;&amp; mright == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mleft == <span class="literal">null</span> || mright == <span class="literal">null</span> || mleft.val != mright.val) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compare(mleft.left, mright.right) &amp;&amp; compare(mleft.right, mright.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="二叉搜索树转化为累加树"><a href="#二叉搜索树转化为累加树" class="headerlink" title="二叉搜索树转化为累加树"></a>二叉搜索树转化为累加树</h3><ul>
-<li><a href="https://leetcode-cn.com/problems/convert-bst-to-greater-tree/">leetcode-538</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">public</span> TreeNode <span class="title function_">convertBST</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(root != <span class="literal">null</span>) &#123;</span><br><span class="line">        convertBST(root.right);</span><br><span class="line">        sum += root.val;</span><br><span class="line">        root.val = sum;</span><br><span class="line">        convertBST(root.left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法与数据结构</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>树</tag>
-        <tag>二叉树</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在OS X上配置JAVA_HOME环境变量</title>
-    <url>/2020/09/13/config-java-home-on-mac/</url>
+    <url>/config-java-home-on-mac/</url>
     <content><![CDATA[<p>在Mac上配置Java开发环境的时候，遇到了一些问题，搜索一番下来之后，更困惑了，各类教程基本上是复制粘贴，而且还很老旧，或者按照Linux系列的系统进行配置，部分情况下配置无法生效，特意搜了一下官方文档，总结一下最新的配置方法。</p>
 <span id="more"></span>
 
@@ -410,8 +328,165 @@
       </tags>
   </entry>
   <entry>
+    <title>二叉树</title>
+    <url>/binary-tree/</url>
+    <content><![CDATA[<p>数据结构总结——二叉树</p>
+<p>总结常见的二叉树相关的算法以及代码实现</p>
+<span id="more"></span>
+
+<p><strong>二叉树定义</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TreeNode</span> &#123;</span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="type">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><ul>
+<li>递归</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归方法(同理可得中序遍历和后序遍历的递归方法)</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">preorderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">null</span>) &#123;</span><br><span class="line">        result.add(root.val);</span><br><span class="line">        preorderTraversal(root.left);</span><br><span class="line">        preorderTraversal(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>迭代</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//迭代方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; <span class="title function_">preOrderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;();</span><br><span class="line">    LinkedList&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stack.push(root);</span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty())&#123;</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">temp</span> <span class="operator">=</span> stack.pop();</span><br><span class="line">        result.add(temp.val);</span><br><span class="line">        <span class="keyword">if</span>(temp.right!=<span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(temp.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(temp.left!=<span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(temp.left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">inorderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">null</span>) &#123;</span><br><span class="line">        inorderTraversal(root.left);</span><br><span class="line">        result.add(root.val);</span><br><span class="line">        inorderTraversal(root.right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//迭代方法同前序遍历</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line">List&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">postorderTraversal</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">null</span>) &#123;</span><br><span class="line">        postorderTraversal(root.left);</span><br><span class="line">        postorderTraversal(root.right);</span><br><span class="line">        result.add(root.val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代方法同前序遍历</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//DFS</span></span><br><span class="line">同前序遍历</span><br></pre></td></tr></table></figure>
+
+<h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//BFS</span></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">levelOrder</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    q.offer(root);</span><br><span class="line">    <span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> q.size();</span><br><span class="line">        List&lt;Integer&gt; level = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; size; ++i) &#123;</span><br><span class="line">            <span class="type">TreeNode</span> <span class="variable">cur</span> <span class="operator">=</span> q.peek();</span><br><span class="line">            q.poll();</span><br><span class="line">            <span class="keyword">if</span> (cur == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            level.add(cur.val);</span><br><span class="line">            q.offer(cur.left);</span><br><span class="line">            q.offer(cur.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!level.isEmpty()) &#123;</span><br><span class="line">            res.add(level);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计算树的高度"><a href="#计算树的高度" class="headerlink" title="计算树的高度"></a>计算树的高度</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxDepth</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">leftde</span> <span class="operator">=</span> maxDepth(root.left);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rightde</span> <span class="operator">=</span> maxDepth(root.right);</span><br><span class="line">    <span class="keyword">return</span> Math.max(leftde, rightde) +<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计算树的直径"><a href="#计算树的直径" class="headerlink" title="计算树的直径"></a>计算树的直径</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/diameter-of-binary-tree/">leetcode-543</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> result;</span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">diameterOfBinaryTree</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    depth(root);</span><br><span class="line">    <span class="keyword">return</span> result&gt;<span class="number">0</span>?result-<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">depth</span><span class="params">(TreeNode node)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">L</span> <span class="operator">=</span> depth(node.left);</span><br><span class="line">    <span class="type">int</span> <span class="variable">R</span> <span class="operator">=</span> depth(node.right);</span><br><span class="line">    result = Math.max(result,L+R+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> Math.max(R,L) +<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="镜像二叉树"><a href="#镜像二叉树" class="headerlink" title="镜像二叉树"></a>镜像二叉树</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/">leetcode</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> TreeNode <span class="title function_">mirrorTree</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">TreeNode</span> <span class="variable">temp</span> <span class="operator">=</span> root.left;</span><br><span class="line">    root.left = root.right;</span><br><span class="line">    root.right = temp;</span><br><span class="line">    mirrorTree(root.left);</span><br><span class="line">    mirrorTree(root.right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="判断一个树是否镜像"><a href="#判断一个树是否镜像" class="headerlink" title="判断一个树是否镜像"></a>判断一个树是否镜像</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/symmetric-tree/">leetcode-101</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSymmetric</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(root ==<span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compare(root.left,root.right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">compare</span><span class="params">(TreeNode mleft, TreeNode mright)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(mleft ==<span class="literal">null</span>&amp;&amp; mright == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mleft == <span class="literal">null</span> || mright == <span class="literal">null</span> || mleft.val != mright.val) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compare(mleft.left, mright.right) &amp;&amp; compare(mleft.right, mright.left);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二叉搜索树转化为累加树"><a href="#二叉搜索树转化为累加树" class="headerlink" title="二叉搜索树转化为累加树"></a>二叉搜索树转化为累加树</h3><ul>
+<li><a href="https://leetcode-cn.com/problems/convert-bst-to-greater-tree/">leetcode-538</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">public</span> TreeNode <span class="title function_">convertBST</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(root != <span class="literal">null</span>) &#123;</span><br><span class="line">        convertBST(root.right);</span><br><span class="line">        sum += root.val;</span><br><span class="line">        root.val = sum;</span><br><span class="line">        convertBST(root.left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法与数据结构</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>树</tag>
+        <tag>二叉树</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>同一台电脑为Git配置多个SSH Key</title>
+    <url>/config-multiple-ssh-keys/</url>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ol>
+<li><p>使用同一台电脑向不同的git平台提交代码</p>
+</li>
+<li><p>使用同一台电脑向同一个git平台的不同账号提交代码</p>
+</li>
+</ol>
+<span id="more"></span>
+
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="为多个平台配置SSH-Key"><a href="#为多个平台配置SSH-Key" class="headerlink" title="为多个平台配置SSH Key"></a>为多个平台配置SSH Key</h2><p>以Github和Gitlab两个平台为例，同时为两个平台创建SSH Key</p>
+<ol>
+<li><p>生成Github的SSH-Key</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&#x27;github_mail@domain.com&#x27;</span> -f ~/.ssh/github_id_rsa</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成Gitlab的SSH-Key</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&#x27;gitlab_mail@domain.com&#x27;</span> -f ~/.ssh/gitlab_id_rsa</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建<code>config</code>文件管理多个Key</p>
+<p>在<code>~/.ssh</code>文件夹下新建一个<code>config</code>文件，如果有就直接在末尾追加内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~/.ssh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> config</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>config</code>文件中写入如下内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">github</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">gitlab</span></span><br><span class="line">Host gitlab.some_url.com</span><br><span class="line">HostName gitlab.some_url.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/gitlab_id_rsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用ssh命令测试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@github.com</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@gitlab.com</span></span><br></pre></td></tr></table></figure>
+
+<p>以GitHub为例，如果连接成功，会有如下返回内容</p>
+<p><code>Hi code-ant! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+</li>
+</ol>
+<h2 id="为统一平台多个账户配置SSH-Key"><a href="#为统一平台多个账户配置SSH-Key" class="headerlink" title="为统一平台多个账户配置SSH Key"></a>为统一平台多个账户配置SSH Key</h2><p>还有一些时候，我们在GitHub有多个账号，需要同时给两个账号创建SSH Key.</p>
+<p>这种情况下的配置和上面为两个平台配置SSH Key步骤类似，主要区别集中在使用Host区分不同账号上面.</p>
+<p>假设此时有两个GitHub账号，一个叫做<code>code-ant</code>，另一个叫做<code>nobodyKnowsMe</code>.</p>
+<ol>
+<li><p>为<code>code-ant</code>账号创建SSH Key</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -C <span class="string">&#x27;code-ant@domain.com&#x27;</span> -f ~/.ssh/code_ant_id_rsa</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为<code>nobodyKnowsMe</code>创建SSH Key</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sh-keygen -t rsa -C <span class="string">&#x27;nobodyKnowsMe@domain.com&#x27;</span> -f ~/.ssh/nobody_id_rsa</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建<code>config</code>文件管理多个Key</p>
+<p>在<code>~/.ssh</code>文件夹下新建一个<code>config</code>文件，如果有就直接在末尾追加内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~/.ssh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> config</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>config</code>文件中写入如下内容</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">code-ant</span></span><br><span class="line">Host code-ant.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/code_ant_id_rsa</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nobodyKnowsMe</span></span><br><span class="line">Host nobodyKnowsMe.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/nobody_id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>说明：git会根据<code>config</code>文件中的<code>Host</code>和<code>HostName</code>做替换</p>
+</li>
+<li><p>使用ssh命令测试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@code-ant.github.com</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@nobodyKnowsMe.gitlab.com</span></span><br></pre></td></tr></table></figure>
+
+<p>以<code>code-ant</code>为例，如果连接成功，会有如下返回内容</p>
+<p><code>Hi code-ant! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+</li>
+<li><p>使用git访问不同的账号</p>
+<p>使用<code>code-ant</code>账号拉取、提交代码</p>
+<p><code>git clone git@code-ant.github.com/code-ant/XXX.git</code></p>
+<p>使用<code>nobodyKnowsMe</code>账号拉取提交代码</p>
+<p><code>git clone git@nobodyKnowsMe.github.com/nobodyKnowsMe/xxx.git</code></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>github</tag>
+        <tag>多账号</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git使用笔记</title>
-    <url>/2020/08/04/git-notes/</url>
+    <url>/git-notes/</url>
     <content><![CDATA[<p>记录一些常见的git命令吧</p>
 <span id="more"></span>
 
@@ -450,7 +525,7 @@
   </entry>
   <entry>
     <title>Windows下使用Git出现中文乱码</title>
-    <url>/2020/02/13/git%E4%B9%B1%E7%A0%81/</url>
+    <url>/git%E4%B9%B1%E7%A0%81/</url>
     <content><![CDATA[<blockquote>
 <p>Windows下使用Git查看git log的时候出现乱码</p>
 </blockquote>
@@ -504,7 +579,7 @@
   </entry>
   <entry>
     <title>【每日一题】int32 to IPv4</title>
-    <url>/2020/01/27/int32-to-IPv4/</url>
+    <url>/int32-to-IPv4/</url>
     <content><![CDATA[<h3 id="【CodeWars】int32-to-IPv4"><a href="#【CodeWars】int32-to-IPv4" class="headerlink" title="【CodeWars】int32 to IPv4"></a>【CodeWars】int32 to IPv4</h3><p>Take the following IPv4 address: <code>128.32.10.1</code></p>
 <p>This address has 4 octets where each octet is a single byte (or 8 bits).</p>
 <ul>
@@ -548,7 +623,7 @@
   </entry>
   <entry>
     <title>Mac使用教程</title>
-    <url>/2022/07/14/mac-use-guide/</url>
+    <url>/mac-use-guide/</url>
     <content><![CDATA[<p>&#x3D;&#x3D;Mac常用功能教程&#x3D;&#x3D;</p>
 <span id="more"></span>
 
@@ -644,23 +719,8 @@
       </tags>
   </entry>
   <entry>
-    <title>MyBatis学习笔记</title>
-    <url>/2020/09/25/mybatis-note/</url>
-    <content><![CDATA[<p>记录MyBatis一些问题</p>
-]]></content>
-      <categories>
-        <category>Spring</category>
-        <category>MyBatis</category>
-      </categories>
-      <tags>
-        <tag>MyBatis</tag>
-        <tag>Spring</tag>
-        <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【每日一题】交替打印FooBar</title>
-    <url>/2020/01/29/printfoobar/</url>
+    <url>/printfoobar/</url>
     <content><![CDATA[<blockquote>
 <p>继续划水</p>
 </blockquote>
@@ -688,8 +748,23 @@
       </tags>
   </entry>
   <entry>
+    <title>MyBatis学习笔记</title>
+    <url>/mybatis-note/</url>
+    <content><![CDATA[<p>记录MyBatis一些问题</p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+        <category>MyBatis</category>
+      </categories>
+      <tags>
+        <tag>MyBatis</tag>
+        <tag>Spring</tag>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Github、npm配置代理</title>
-    <url>/2020/08/23/proxy/</url>
+    <url>/proxy/</url>
     <content><![CDATA[<p>鉴于一些网络环境的问题，有必要收藏一些代理的使用方法。</p>
 <p>记录一些代理的配置方法</p>
 <span id="more"></span>
@@ -743,14 +818,14 @@
       <tags>
         <tag>配置</tag>
         <tag>git</tag>
+        <tag>github</tag>
         <tag>代理</tag>
         <tag>npm</tag>
-        <tag>github</tag>
       </tags>
   </entry>
   <entry>
     <title>Redis-随笔</title>
-    <url>/2021/04/02/redis-%E9%9A%8F%E7%AC%94/</url>
+    <url>/redis-%E9%9A%8F%E7%AC%94/</url>
     <content><![CDATA[<ul>
 <li><p>Redis的基本数据类型</p>
 <span id="more"></span>
@@ -872,110 +947,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis性能优化</title>
-    <url>/2021/04/02/redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<p>Redis在高并发场景下对于性能要求较高，总结一下常用的Redis性能调优方案。</p>
-<span id="more"></span>
-
-<h3 id="优化方式"><a href="#优化方式" class="headerlink" title="优化方式"></a>优化方式</h3><ol>
-<li>缩短键值对的存储长度</li>
-<li>使用lazy free（延迟删除）特性</li>
-<li>设置键值的过期时间</li>
-<li>禁用长耗时的查询命令</li>
-<li>使用slowlog优化耗时命令</li>
-<li>使用pipline批量操作数据</li>
-<li>避免大量数据同时失效</li>
-<li>客户端使用优化</li>
-<li>限制redis内存大小</li>
-<li>使用物理机而非虚拟机安装Redis服务</li>
-<li>检查数据持久化策略</li>
-<li>禁用THP特性</li>
-<li>使用分布式架构增加读写速度</li>
-</ol>
-<h3 id="优化方案解析"><a href="#优化方案解析" class="headerlink" title="优化方案解析"></a>优化方案解析</h3><h4 id="1-缩短键值对的存储产长度"><a href="#1-缩短键值对的存储产长度" class="headerlink" title="1.缩短键值对的存储产长度"></a>1.缩短键值对的存储产长度</h4><p>Redis对于同一种数据类型会使用不同的内部编码进行存储，通过不同编码实现效率和空间的平衡，然而数据量越大，使用的内部编码就会越复杂，越是复杂的内部编码，存储的性能就会越低。</p>
-<p>当键值对较大时，还会带来另外的问题：</p>
-<ul>
-<li>内容越大，需要持久化的时间就会越长，需要挂起的时间越长，Redis的性能越低。</li>
-<li>内容越大，网络上传输的内容越多，传输时间变长，整体运行速度降低。</li>
-<li>内容大，内存占用变大，会频繁触发内存淘汰机制，给Redis带来更多的运行负担。</li>
-</ul>
-<p>所以，在保证完整语义的情况下，尽量缩短键值对的存储长度，必要时对数据进行序列化和压缩，然后在存储。</p>
-<h4 id="2-使用lazy-free特性"><a href="#2-使用lazy-free特性" class="headerlink" title="2.使用lazy free特性"></a>2.使用lazy free特性</h4><p>lazy free是Redis 4.0新增的功能，意思为惰性删除、延迟删除，在删除的时候提供异步延时释放键值的功能，把键值释放操作放在BIO（Background I&#x2F;O）单独的子线程中处理，减少删除对主线程的阻塞，可以有效避免删除big key时带来的性能和可用性问题。</p>
-<p>四种场景：</p>
-<ul>
-<li>lazyfree-lazy-eviction：当Redis运行内存超过maxmemory时，是否开启lazy free机制删除。</li>
-<li>lazyfree-lazy-expire：表示设置了过期时间的键值，过期之后是否开启lazy free机制删除。</li>
-<li>lazyfree-lazy-server-del：有些指令在处理已存在的键时，会带有一个隐式的del键操作，例如rename命令，当目标键已经存在，Redis会先删除目标键，如果这些目标键是big key就会造成阻塞删除的问题。</li>
-<li>lazyfree-lazy-flush：针对 slave 从节点进行全量数据同步，slave在加载 master 的RDB文件前，会会运行flushall来清理自己的数据。</li>
-</ul>
-<h4 id="3-设置键值的过期时间"><a href="#3-设置键值的过期时间" class="headerlink" title="3.设置键值的过期时间"></a>3.设置键值的过期时间</h4><p>根据实际业务情况，设置键值的合理过期时间，Redis会自动清除过期的键值对，节约内存占用，避免键值对过多的堆积，频发触发淘汰策略。</p>
-<h4 id="4-禁用长耗时的查询命令"><a href="#4-禁用长耗时的查询命令" class="headerlink" title="4.禁用长耗时的查询命令"></a>4.禁用长耗时的查询命令</h4><p>Redis只用一个线程来做数据查询，如果查询指令时间比较长，就会阻塞Redis，造成延时。</p>
-<p>避免O(n)命令对于Redis造成影响，可以有的优化方式:</p>
-<ul>
-<li>禁止使用keys命令</li>
-<li>避免一次查询所有成员，使用scan命令进行分批的、游标式的遍历</li>
-<li>通过机制严格控制Hash、Set、Sorted Set等数据结构的大小</li>
-<li>将排序、并集、交集等操作放在客户端执行，减少Redis服务器压力</li>
-<li>删除一个大数据的时候，可能会需要较长时间，建议用异步删除的方式unlink，会启动一个新的线程来删除目标数据，不阻塞主线程</li>
-</ul>
-<h4 id="5-使用slowlog优化查询耗时"><a href="#5-使用slowlog优化查询耗时" class="headerlink" title="5.使用slowlog优化查询耗时"></a>5.使用slowlog优化查询耗时</h4><p>使用slowlog功能找出最耗时的Redis命令进行优化，提高运行速度。</p>
-<ul>
-<li><code>slowlog-log-slower-than</code>：用于设置慢查询的评定时间，超过此配置项的命令，会被当成慢操作记录在慢查询日志中，执行单位为微妙。</li>
-<li><code>slowlog-max-len</code>：配置慢查询日志的最大记录数</li>
-</ul>
-<h4 id="6-使用pipline批量操作数据"><a href="#6-使用pipline批量操作数据" class="headerlink" title="6.使用pipline批量操作数据"></a>6.使用pipline批量操作数据</h4><p>Pipline-管道技术是客户端提供的一种批处理技术，用于一次处理多个Redis命令，从而提高整个交互的性能。</p>
-<h4 id="7-避免大量数据同时失效"><a href="#7-避免大量数据同时失效" class="headerlink" title="7.避免大量数据同时失效"></a>7.避免大量数据同时失效</h4><p>Redis过期键值删除使用的是贪心策略，每秒会进行十次过期扫描，这个扫描频率可以在redia.conf中进程配置，默认值是<code>hz 10</code>，Redis会随机抽取20个值，删除这20个键中过期的键，如果过去key的比例超过25%，会重复执行扫描-选取-删除的过程。</p>
-<p>如果在大型系统中有大量缓存在同一时间同时过期，那么Redis会循环多次进行扫描删除操作，直到过期键值被删除的比较稀疏位置，整个删除过程中会导致Redis的读写产生明显卡顿，同时卡顿的另一种原是内存页管理器会频繁回收内存页，因此也会消耗一定的CPU。</p>
-<p>为了避免卡顿现象的发生，设计过程中需要预防大量的缓存在同一时刻一起过期，最简单的设计方案就是在过期时间的基础上添加一个指定范围的随机数。</p>
-<h4 id="8-客户端使用优化"><a href="#8-客户端使用优化" class="headerlink" title="8.客户端使用优化"></a>8.客户端使用优化</h4><p>在客户端使用时除了尽量使用Pipline以外，还要注意使用Redis连接池，而不是频繁创建销毁Redis连接，这样可以减少网络传输次数和非必要调用指令。</p>
-<h4 id="9-限制Redis内存大小"><a href="#9-限制Redis内存大小" class="headerlink" title="9.限制Redis内存大小"></a>9.限制Redis内存大小</h4><p>64位操作系统没有限制Redis的内存大小，配置项<code>maxmemory&lt;bytes&gt;</code>是被注释掉的，这样就会导致在物理内存不足时，使用swap交换空间，操作系统将Redis使用的内存分页迁移到swap的时候，会阻塞Redis进程，Redis会出现延迟，影响整体性能。因此需要设置一个固定的Redis内存大小，当Redis的运行内存达到这个值的时候会触发内存淘汰策略。</p>
-<p>Redis 4.0以后内存淘汰策略有8种：</p>
-<ol>
-<li><code>noeviction</code>：不淘汰任何数据，内存不足时，新增操作会报错，这个是默认的淘汰策略。</li>
-<li><code>allkeys-lru</code>：淘汰所有键值中最久未使用的键值</li>
-<li><code>allkeys-random</code>：随机淘汰任意键值</li>
-<li><code>volatile-lru</code>：淘汰所有设置了过期时间的键值中最久未使用的键值</li>
-<li><code>volatile-random</code>：随机淘汰设置了过期时间的任意键值</li>
-<li><code>volatile-ttl</code>：优先淘汰更早过期的键值</li>
-<li><code>volatile-lfu</code>：淘汰所有设置过期时间的键值中，最少使用的键值</li>
-<li><code>allkeys-lfu</code>：淘汰所有键值中使用最少的键值</li>
-</ol>
-<h4 id="10-使用物理机而非虚拟机"><a href="#10-使用物理机而非虚拟机" class="headerlink" title="10.使用物理机而非虚拟机"></a>10.使用物理机而非虚拟机</h4><h4 id="11-检查数据持久化策略"><a href="#11-检查数据持久化策略" class="headerlink" title="11.检查数据持久化策略"></a>11.检查数据持久化策略</h4><p>Redis的持久化策略是将内存数据复制到硬盘上，这样才能进行容灾恢复或者数据迁移，但是维护持久化的功能，需要很大的性能开销。</p>
-<p>持久化方式：</p>
-<ul>
-<li>RDB（Redis Database，快照方式）将某一个时刻的内存数据以二进制的方式写入磁盘。</li>
-<li>AOF（Append Only File，文件追加方式）记录所有的操作命令，并以文本的形式追加到文件中。</li>
-<li>混合持久化方式，Redis 4.0以后版本支持。写入的时候，先把当前的数据以RDB的形式写入文件的开头，再将后续的操作命令以AOF的格式写入文件，既能保证Redis重启时的速度，又能降低数据丢失的风险。</li>
-</ul>
-<p>RDB可能会导致一定时间内的数据丢失，AOF文件较大的话则会影响Redis启动速度，混合持久化方式则结合了两种方式的优点。</p>
-<h4 id="12-禁用THP特性"><a href="#12-禁用THP特性" class="headerlink" title="12.禁用THP特性"></a>12.禁用THP特性</h4><p>Linux kernel在 2.6.38内核增加了Transparent Huge Pages（THP）特性，支持大内存页2MB分配。</p>
-<p>开启THP的时候，fork速度会变慢，fork之后，每个内存页从4KB变成2MB，会大幅增加重写期间父进程内存消耗。每次写命令引起的复制内存页单位放大了512倍，会拖慢写操作的执行时间，导致大量写操作慢查询。</p>
-<h4 id="13-使用分布式架构增加读写速度"><a href="#13-使用分布式架构增加读写速度" class="headerlink" title="13.使用分布式架构增加读写速度"></a>13.使用分布式架构增加读写速度</h4><p>Redis分布式架构的三个重要手段：</p>
-<ul>
-<li>主从同步</li>
-<li>哨兵模式</li>
-<li>Redis Cluster集群</li>
-</ul>
-<p>主从同步把写操作放到主库上执行，读操作放到从服务上，从而在单位时间内处理更多请求，提升性能</p>
-<p>哨兵模式主要针对主从功能的升级，当主节点崩溃以后，无需人工干预，能够自动恢复Redis的使用</p>
-<p>Redis Cluster集群通过将数据库分散存储到多个节点，平衡各个节点的负载压力。</p>
-<blockquote>
-<p>Redis Cluster 采用虚拟哈希槽分区，所有的键根据哈希函数映射到 0 ~ 16383 整数槽内，计算公式：slot &#x3D; CRC16(key) &amp; 16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。这样 Redis 就可以把读写压力从一台服务器，分散给多台服务器了，因此性能会有很大的提升。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-        <tag>优化</tag>
-        <tag>调优</tag>
-        <tag>性能</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>排序算法总结</title>
-    <url>/2020/09/01/sort-algo/</url>
+    <url>/sort-algo/</url>
     <content><![CDATA[<p>总结十大经典排序算法，分析稳定性、时间复杂度等内容；</p>
 <h3 id="算法相关定义"><a href="#算法相关定义" class="headerlink" title="算法相关定义"></a>算法相关定义</h3><ul>
 <li><p>时间复杂度：</p>
@@ -1094,57 +1067,110 @@
       </tags>
   </entry>
   <entry>
-    <title>使用命令行打开Ubuntu的护眼模式（Night Light）</title>
-    <url>/2020/03/28/turnon-nightlight/</url>
-    <content><![CDATA[<blockquote>
-<p>使用命令行打开Ubuntu的Night Mode</p>
-</blockquote>
-<ul>
-<li><p>Ubuntu上的护眼模式（Night Light）</p>
-<p>Ubuntu的护眼模式很香，但是不是很好用，如果使用图形界面需要在设置中打开，对于懒癌晚期的患者不是很友好</p>
+    <title>Redis性能优化</title>
+    <url>/redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<p>Redis在高并发场景下对于性能要求较高，总结一下常用的Redis性能调优方案。</p>
 <span id="more"></span>
-</li>
-<li><p>解决方法</p>
-<ul>
-<li><p>终端中用命令打开</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开</span></span><br><span class="line">gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭</span></span><br><span class="line">gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false</span><br></pre></td></tr></table></figure>
 
-<p>用了两分钟，体验极差，记不住，太长了，需要继续优化</p>
-</li>
-<li><p>优化方案</p>
-<p>想到了<code>alias</code>，可以通过<code>alias</code>别名优化</p>
+<h3 id="优化方式"><a href="#优化方式" class="headerlink" title="优化方式"></a>优化方式</h3><ol>
+<li>缩短键值对的存储长度</li>
+<li>使用lazy free（延迟删除）特性</li>
+<li>设置键值的过期时间</li>
+<li>禁用长耗时的查询命令</li>
+<li>使用slowlog优化耗时命令</li>
+<li>使用pipline批量操作数据</li>
+<li>避免大量数据同时失效</li>
+<li>客户端使用优化</li>
+<li>限制redis内存大小</li>
+<li>使用物理机而非虚拟机安装Redis服务</li>
+<li>检查数据持久化策略</li>
+<li>禁用THP特性</li>
+<li>使用分布式架构增加读写速度</li>
+</ol>
+<h3 id="优化方案解析"><a href="#优化方案解析" class="headerlink" title="优化方案解析"></a>优化方案解析</h3><h4 id="1-缩短键值对的存储产长度"><a href="#1-缩短键值对的存储产长度" class="headerlink" title="1.缩短键值对的存储产长度"></a>1.缩短键值对的存储产长度</h4><p>Redis对于同一种数据类型会使用不同的内部编码进行存储，通过不同编码实现效率和空间的平衡，然而数据量越大，使用的内部编码就会越复杂，越是复杂的内部编码，存储的性能就会越低。</p>
+<p>当键值对较大时，还会带来另外的问题：</p>
 <ul>
-<li>bash的<code>alias</code>不支持参数，需要用到function</li>
+<li>内容越大，需要持久化的时间就会越长，需要挂起的时间越长，Redis的性能越低。</li>
+<li>内容越大，网络上传输的内容越多，传输时间变长，整体运行速度降低。</li>
+<li>内容大，内存占用变大，会频繁触发内存淘汰机制，给Redis带来更多的运行负担。</li>
 </ul>
-<p><strong>大致思路</strong></p>
-<p>将<code>alias</code>的内容定义成一个函数，由函数处理参数，然后调用函数</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">function nightMode() &#123;</span><br><span class="line">	……</span><br><span class="line">	……</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nightMode &lt;<span class="literal">true</span>|<span class="literal">false</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最终实现</p>
-<p>在当前用户的<code>home</code>目录下修改<code>.bashrc</code>文件，末尾追加</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">turnon or turnoff nightlight</span></span><br><span class="line">alias nightmode=&#x27;nightmode() &#123; gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled $1;&#125;; nightmode&#x27;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用方法</p>
-<p>当前用户任意位置打开终端输入<code>nightmode true</code>或者<code>nightmode false</code>打开或者关闭护眼模式</p>
-</li>
+<p>所以，在保证完整语义的情况下，尽量缩短键值对的存储长度，必要时对数据进行序列化和压缩，然后在存储。</p>
+<h4 id="2-使用lazy-free特性"><a href="#2-使用lazy-free特性" class="headerlink" title="2.使用lazy free特性"></a>2.使用lazy free特性</h4><p>lazy free是Redis 4.0新增的功能，意思为惰性删除、延迟删除，在删除的时候提供异步延时释放键值的功能，把键值释放操作放在BIO（Background I&#x2F;O）单独的子线程中处理，减少删除对主线程的阻塞，可以有效避免删除big key时带来的性能和可用性问题。</p>
+<p>四种场景：</p>
+<ul>
+<li>lazyfree-lazy-eviction：当Redis运行内存超过maxmemory时，是否开启lazy free机制删除。</li>
+<li>lazyfree-lazy-expire：表示设置了过期时间的键值，过期之后是否开启lazy free机制删除。</li>
+<li>lazyfree-lazy-server-del：有些指令在处理已存在的键时，会带有一个隐式的del键操作，例如rename命令，当目标键已经存在，Redis会先删除目标键，如果这些目标键是big key就会造成阻塞删除的问题。</li>
+<li>lazyfree-lazy-flush：针对 slave 从节点进行全量数据同步，slave在加载 master 的RDB文件前，会会运行flushall来清理自己的数据。</li>
 </ul>
-</li>
-<li><p>END</p>
-</li>
+<h4 id="3-设置键值的过期时间"><a href="#3-设置键值的过期时间" class="headerlink" title="3.设置键值的过期时间"></a>3.设置键值的过期时间</h4><p>根据实际业务情况，设置键值的合理过期时间，Redis会自动清除过期的键值对，节约内存占用，避免键值对过多的堆积，频发触发淘汰策略。</p>
+<h4 id="4-禁用长耗时的查询命令"><a href="#4-禁用长耗时的查询命令" class="headerlink" title="4.禁用长耗时的查询命令"></a>4.禁用长耗时的查询命令</h4><p>Redis只用一个线程来做数据查询，如果查询指令时间比较长，就会阻塞Redis，造成延时。</p>
+<p>避免O(n)命令对于Redis造成影响，可以有的优化方式:</p>
+<ul>
+<li>禁止使用keys命令</li>
+<li>避免一次查询所有成员，使用scan命令进行分批的、游标式的遍历</li>
+<li>通过机制严格控制Hash、Set、Sorted Set等数据结构的大小</li>
+<li>将排序、并集、交集等操作放在客户端执行，减少Redis服务器压力</li>
+<li>删除一个大数据的时候，可能会需要较长时间，建议用异步删除的方式unlink，会启动一个新的线程来删除目标数据，不阻塞主线程</li>
 </ul>
+<h4 id="5-使用slowlog优化查询耗时"><a href="#5-使用slowlog优化查询耗时" class="headerlink" title="5.使用slowlog优化查询耗时"></a>5.使用slowlog优化查询耗时</h4><p>使用slowlog功能找出最耗时的Redis命令进行优化，提高运行速度。</p>
+<ul>
+<li><code>slowlog-log-slower-than</code>：用于设置慢查询的评定时间，超过此配置项的命令，会被当成慢操作记录在慢查询日志中，执行单位为微妙。</li>
+<li><code>slowlog-max-len</code>：配置慢查询日志的最大记录数</li>
+</ul>
+<h4 id="6-使用pipline批量操作数据"><a href="#6-使用pipline批量操作数据" class="headerlink" title="6.使用pipline批量操作数据"></a>6.使用pipline批量操作数据</h4><p>Pipline-管道技术是客户端提供的一种批处理技术，用于一次处理多个Redis命令，从而提高整个交互的性能。</p>
+<h4 id="7-避免大量数据同时失效"><a href="#7-避免大量数据同时失效" class="headerlink" title="7.避免大量数据同时失效"></a>7.避免大量数据同时失效</h4><p>Redis过期键值删除使用的是贪心策略，每秒会进行十次过期扫描，这个扫描频率可以在redia.conf中进程配置，默认值是<code>hz 10</code>，Redis会随机抽取20个值，删除这20个键中过期的键，如果过去key的比例超过25%，会重复执行扫描-选取-删除的过程。</p>
+<p>如果在大型系统中有大量缓存在同一时间同时过期，那么Redis会循环多次进行扫描删除操作，直到过期键值被删除的比较稀疏位置，整个删除过程中会导致Redis的读写产生明显卡顿，同时卡顿的另一种原是内存页管理器会频繁回收内存页，因此也会消耗一定的CPU。</p>
+<p>为了避免卡顿现象的发生，设计过程中需要预防大量的缓存在同一时刻一起过期，最简单的设计方案就是在过期时间的基础上添加一个指定范围的随机数。</p>
+<h4 id="8-客户端使用优化"><a href="#8-客户端使用优化" class="headerlink" title="8.客户端使用优化"></a>8.客户端使用优化</h4><p>在客户端使用时除了尽量使用Pipline以外，还要注意使用Redis连接池，而不是频繁创建销毁Redis连接，这样可以减少网络传输次数和非必要调用指令。</p>
+<h4 id="9-限制Redis内存大小"><a href="#9-限制Redis内存大小" class="headerlink" title="9.限制Redis内存大小"></a>9.限制Redis内存大小</h4><p>64位操作系统没有限制Redis的内存大小，配置项<code>maxmemory&lt;bytes&gt;</code>是被注释掉的，这样就会导致在物理内存不足时，使用swap交换空间，操作系统将Redis使用的内存分页迁移到swap的时候，会阻塞Redis进程，Redis会出现延迟，影响整体性能。因此需要设置一个固定的Redis内存大小，当Redis的运行内存达到这个值的时候会触发内存淘汰策略。</p>
+<p>Redis 4.0以后内存淘汰策略有8种：</p>
+<ol>
+<li><code>noeviction</code>：不淘汰任何数据，内存不足时，新增操作会报错，这个是默认的淘汰策略。</li>
+<li><code>allkeys-lru</code>：淘汰所有键值中最久未使用的键值</li>
+<li><code>allkeys-random</code>：随机淘汰任意键值</li>
+<li><code>volatile-lru</code>：淘汰所有设置了过期时间的键值中最久未使用的键值</li>
+<li><code>volatile-random</code>：随机淘汰设置了过期时间的任意键值</li>
+<li><code>volatile-ttl</code>：优先淘汰更早过期的键值</li>
+<li><code>volatile-lfu</code>：淘汰所有设置过期时间的键值中，最少使用的键值</li>
+<li><code>allkeys-lfu</code>：淘汰所有键值中使用最少的键值</li>
+</ol>
+<h4 id="10-使用物理机而非虚拟机"><a href="#10-使用物理机而非虚拟机" class="headerlink" title="10.使用物理机而非虚拟机"></a>10.使用物理机而非虚拟机</h4><h4 id="11-检查数据持久化策略"><a href="#11-检查数据持久化策略" class="headerlink" title="11.检查数据持久化策略"></a>11.检查数据持久化策略</h4><p>Redis的持久化策略是将内存数据复制到硬盘上，这样才能进行容灾恢复或者数据迁移，但是维护持久化的功能，需要很大的性能开销。</p>
+<p>持久化方式：</p>
+<ul>
+<li>RDB（Redis Database，快照方式）将某一个时刻的内存数据以二进制的方式写入磁盘。</li>
+<li>AOF（Append Only File，文件追加方式）记录所有的操作命令，并以文本的形式追加到文件中。</li>
+<li>混合持久化方式，Redis 4.0以后版本支持。写入的时候，先把当前的数据以RDB的形式写入文件的开头，再将后续的操作命令以AOF的格式写入文件，既能保证Redis重启时的速度，又能降低数据丢失的风险。</li>
+</ul>
+<p>RDB可能会导致一定时间内的数据丢失，AOF文件较大的话则会影响Redis启动速度，混合持久化方式则结合了两种方式的优点。</p>
+<h4 id="12-禁用THP特性"><a href="#12-禁用THP特性" class="headerlink" title="12.禁用THP特性"></a>12.禁用THP特性</h4><p>Linux kernel在 2.6.38内核增加了Transparent Huge Pages（THP）特性，支持大内存页2MB分配。</p>
+<p>开启THP的时候，fork速度会变慢，fork之后，每个内存页从4KB变成2MB，会大幅增加重写期间父进程内存消耗。每次写命令引起的复制内存页单位放大了512倍，会拖慢写操作的执行时间，导致大量写操作慢查询。</p>
+<h4 id="13-使用分布式架构增加读写速度"><a href="#13-使用分布式架构增加读写速度" class="headerlink" title="13.使用分布式架构增加读写速度"></a>13.使用分布式架构增加读写速度</h4><p>Redis分布式架构的三个重要手段：</p>
+<ul>
+<li>主从同步</li>
+<li>哨兵模式</li>
+<li>Redis Cluster集群</li>
+</ul>
+<p>主从同步把写操作放到主库上执行，读操作放到从服务上，从而在单位时间内处理更多请求，提升性能</p>
+<p>哨兵模式主要针对主从功能的升级，当主节点崩溃以后，无需人工干预，能够自动恢复Redis的使用</p>
+<p>Redis Cluster集群通过将数据库分散存储到多个节点，平衡各个节点的负载压力。</p>
+<blockquote>
+<p>Redis Cluster 采用虚拟哈希槽分区，所有的键根据哈希函数映射到 0 ~ 16383 整数槽内，计算公式：slot &#x3D; CRC16(key) &amp; 16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。这样 Redis 就可以把读写压力从一台服务器，分散给多台服务器了，因此性能会有很大的提升。</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>奇淫技巧</category>
+        <category>Redis</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Ubuntu</tag>
-        <tag>CLI</tag>
+        <tag>Redis</tag>
+        <tag>优化</tag>
+        <tag>调优</tag>
+        <tag>性能</tag>
       </tags>
   </entry>
   <entry>
     <title>常见设计模式</title>
-    <url>/2021/04/02/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <url>/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><ul>
 <li><p>单例模式相关概念</p>
 <span id="more"></span>
@@ -1274,8 +1300,57 @@
       </tags>
   </entry>
   <entry>
+    <title>使用命令行打开Ubuntu的护眼模式（Night Light）</title>
+    <url>/turnon-nightlight/</url>
+    <content><![CDATA[<blockquote>
+<p>使用命令行打开Ubuntu的Night Mode</p>
+</blockquote>
+<ul>
+<li><p>Ubuntu上的护眼模式（Night Light）</p>
+<p>Ubuntu的护眼模式很香，但是不是很好用，如果使用图形界面需要在设置中打开，对于懒癌晚期的患者不是很友好</p>
+<span id="more"></span>
+</li>
+<li><p>解决方法</p>
+<ul>
+<li><p>终端中用命令打开</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开</span></span><br><span class="line">gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭</span></span><br><span class="line">gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled false</span><br></pre></td></tr></table></figure>
+
+<p>用了两分钟，体验极差，记不住，太长了，需要继续优化</p>
+</li>
+<li><p>优化方案</p>
+<p>想到了<code>alias</code>，可以通过<code>alias</code>别名优化</p>
+<ul>
+<li>bash的<code>alias</code>不支持参数，需要用到function</li>
+</ul>
+<p><strong>大致思路</strong></p>
+<p>将<code>alias</code>的内容定义成一个函数，由函数处理参数，然后调用函数</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">function nightMode() &#123;</span><br><span class="line">	……</span><br><span class="line">	……</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nightMode &lt;<span class="literal">true</span>|<span class="literal">false</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最终实现</p>
+<p>在当前用户的<code>home</code>目录下修改<code>.bashrc</code>文件，末尾追加</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">turnon or turnoff nightlight</span></span><br><span class="line">alias nightmode=&#x27;nightmode() &#123; gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled $1;&#125;; nightmode&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用方法</p>
+<p>当前用户任意位置打开终端输入<code>nightmode true</code>或者<code>nightmode false</code>打开或者关闭护眼模式</p>
+</li>
+</ul>
+</li>
+<li><p>END</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>奇淫技巧</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
+        <tag>CLI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>乐观锁与悲观锁</title>
-    <url>/2020/08/22/%E9%94%81/</url>
+    <url>/%E9%94%81/</url>
     <content><![CDATA[<h3 id="什么是乐观锁与悲观锁"><a href="#什么是乐观锁与悲观锁" class="headerlink" title="什么是乐观锁与悲观锁"></a>什么是乐观锁与悲观锁</h3><blockquote>
 <p>乐观锁和悲观锁、见名知意，乐观锁设计的出发点是程序总是能够按照正确的，没有异常的情况发展；悲观锁的设计出发点是程序运行时总是会遇到异常。</p>
 </blockquote>
