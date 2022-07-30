@@ -1030,3 +1030,8 @@ vendors:
 css: css
 js: js
 images: images
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml

@@ -2,6 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="{{ theme.android_chrome_color }}">
 <meta name="generator" content="Hexo {{ hexo_version }}">
+<meta name="baidu-site-verification" content="code-I7atPOPUOK" />
+<meta name="google-site-verification" content="jenq5X-GlQumCpeEqHh9kBVpY7WYRRX0oaxU7ETTd1o" />
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
