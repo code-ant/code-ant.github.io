@@ -6,7 +6,7 @@
   <link href="https://blog.wpt6.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.wpt6.cn/"/>
-  <updated>2022-07-21T02:18:35.000Z</updated>
+  <updated>2022-10-09T12:55:27.000Z</updated>
   <id>https://blog.wpt6.cn/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>做一个可以视频通话的遥控车</title>
+    <link href="https://blog.wpt6.cn/do-something-fun/"/>
+    <id>https://blog.wpt6.cn/do-something-fun/</id>
+    <published>2022-10-09T12:55:27.000Z</published>
+    <updated>2022-10-09T12:55:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近看了不少内容，可是仔细回味，又不知道自己到底做了什么，开始迷茫起来。具体点来说：学了点东西，但是不多。</p><p>所以需要一个系统性的东西把这些内容串联起来，找一个可以落地的项目，通过项目来理顺思路，顺便把学到的内容按照思维导图的形式整理出来。</p></blockquote><h2 id="一个有趣的想法"><a href="#一个有趣的想法" class="headerlink" title="一个有趣的想法"></a>一个有趣的想法</h2><p>之前改装出租屋里的开关，买过一个ESP8266的开发板，后来搬家遥控开关就拆掉了，开发板就一直吃灰，想着把闲置的东西和没吃透的知识都利用起来。于是，一个奇妙的idea就产生了：我用这个开发板做一个遥控小车，给板子加上4G模块、麦克风、扬声器和Camera模块实现音视频采集和传输，通过4G模块实现小车的远程控制，刚好闲置了一年的云服务器还能再折腾一下。</p><p>整个过程中会用到：单片机、网络、音视频、Camera这些强相关的内容，现学现卖，把知识用起来。</p><span id="more"></span><h2 id="将会用到的关键技术"><a href="#将会用到的关键技术" class="headerlink" title="将会用到的关键技术"></a>将会用到的关键技术</h2><h3 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a>Arduino</h3><p>开发单片机，针对ESP8266开发，用来驱动4G模块、麦克风、扬声器、Camera、电机等硬件</p><h3 id="Camera"><a href="#Camera" class="headerlink" title="Camera"></a>Camera</h3><p>采集视频流，视频通话需要的数据流</p><h3 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h3><p>音视频编解码、压缩等</p><h3 id="OpenGL"><a href="#OpenGL" class="headerlink" title="OpenGL"></a>OpenGL</h3><p>远端视频流的渲染，滤镜等特效</p><h3 id="WebRTC"><a href="#WebRTC" class="headerlink" title="WebRTC"></a>WebRTC</h3><p>实现点对点通信，云服务器的带宽、CPU等配置太低，不能完成转发工作。用云服务器做信令传递，大的视频流使用P2P完成</p><h3 id="其他细节"><a href="#其他细节" class="headerlink" title="其他细节"></a>其他细节</h3><p>细枝末节的工作，比如：单片机配置网络、通过服务器转发小车控制指令等</p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最近看了不少内容，可是仔细回味，又不知道自己到底做了什么，开始迷茫起来。具体点来说：学了点东西，但是不多。&lt;/p&gt;
+&lt;p&gt;所以需要一个系统性的东西把这些内容串联起来，找一个可以落地的项目，通过项目来理顺思路，顺便把学到的内容按照思维导图的形式整理出来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一个有趣的想法&quot;&gt;&lt;a href=&quot;#一个有趣的想法&quot; class=&quot;headerlink&quot; title=&quot;一个有趣的想法&quot;&gt;&lt;/a&gt;一个有趣的想法&lt;/h2&gt;&lt;p&gt;之前改装出租屋里的开关，买过一个ESP8266的开发板，后来搬家遥控开关就拆掉了，开发板就一直吃灰，想着把闲置的东西和没吃透的知识都利用起来。于是，一个奇妙的idea就产生了：我用这个开发板做一个遥控小车，给板子加上4G模块、麦克风、扬声器和Camera模块实现音视频采集和传输，通过4G模块实现小车的远程控制，刚好闲置了一年的云服务器还能再折腾一下。&lt;/p&gt;
+&lt;p&gt;整个过程中会用到：单片机、网络、音视频、Camera这些强相关的内容，现学现卖，把知识用起来。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="兴趣爱好" scheme="https://blog.wpt6.cn/categories/%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD/"/>
+    
+    
+    <category term="硬件" scheme="https://blog.wpt6.cn/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+    <category term="Arduino" scheme="https://blog.wpt6.cn/tags/Arduino/"/>
+    
+    <category term="单片机" scheme="https://blog.wpt6.cn/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    <category term="WebRTC" scheme="https://blog.wpt6.cn/tags/WebRTC/"/>
+    
+    <category term="FFmpeg" scheme="https://blog.wpt6.cn/tags/FFmpeg/"/>
+    
+    <category term="OpenGL" scheme="https://blog.wpt6.cn/tags/OpenGL/"/>
+    
+    <category term="音视频" scheme="https://blog.wpt6.cn/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="Camera" scheme="https://blog.wpt6.cn/tags/Camera/"/>
+    
+  </entry>
   
   <entry>
     <title>同一台电脑为Git配置多个SSH Key</title>
@@ -530,35 +570,6 @@
 &lt;h3 id=&quot;【LeetCode】1115-交替打印FooBar&quot;&gt;&lt;a href=&quot;#【LeetCode】1115-交替打印FooBar&quot; class=&quot;headerlink&quot; title=&quot;【LeetCode】1115. 交替打印FooBar&quot;&gt;&lt;/a&gt;【LeetCode】1115. 交替打印FooBar&lt;/h3&gt;&lt;p&gt;我们提供一个类：&lt;/p&gt;
 &lt;p&gt;两个不同的线程将会共用一个 FooBar 实例。其中一个线程将会调用 foo() 方法，另一个线程将会调用 bar() 方法。&lt;/p&gt;
 &lt;p&gt;请设计修改程序，以确保 “foobar” 被输出 n 次。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="每日一题" scheme="https://blog.wpt6.cn/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
-    
-    <category term="LeetCode" scheme="https://blog.wpt6.cn/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/LeetCode/"/>
-    
-    
-    <category term="多线程" scheme="https://blog.wpt6.cn/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-    <category term="LeetCode" scheme="https://blog.wpt6.cn/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【每日一题】交替打印字符串</title>
-    <link href="https://blog.wpt6.cn/FizzBuzz/"/>
-    <id>https://blog.wpt6.cn/FizzBuzz/</id>
-    <published>2020-01-28T07:38:27.000Z</published>
-    <updated>2020-01-28T07:38:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>肺炎赋闲在家，水一些简单题打发时间吧</p></blockquote><h3 id="【LeetCode】1195-交替打印字符串"><a href="#【LeetCode】1195-交替打印字符串" class="headerlink" title="【LeetCode】1195. 交替打印字符串"></a>【LeetCode】1195. 交替打印字符串</h3><p>编写一个可以从 1 到 n 输出代表这个数字的字符串的程序，但是：</p><p>如果这个数字可以被 3 整除，输出 “fizz”。<br>如果这个数字可以被 5 整除，输出 “buzz”。<br>如果这个数字可以同时被 3 和 5 整除，输出 “fizzbuzz”。<br>例如，当 n &#x3D; 15，输出： 1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fizzbuzz。</p><span id="more"></span><p>假设有这么一个类：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class FizzBuzz &#123;</span><br><span class="line">  public FizzBuzz(int n) &#123; ... &#125;               // constructor</span><br><span class="line">  public void fizz(printFizz) &#123; ... &#125;          // only output &quot;fizz&quot;</span><br><span class="line">  public void buzz(printBuzz) &#123; ... &#125;          // only output &quot;buzz&quot;</span><br><span class="line">  public void fizzbuzz(printFizzBuzz) &#123; ... &#125;  // only output &quot;fizzbuzz&quot;</span><br><span class="line">  public void number(printNumber) &#123; ... &#125;      // only output the numbers</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>请你实现一个有四个线程的多线程版  FizzBuzz， 同一个 FizzBuzz 实例会被如下四个线程使用：</p><p><code>线程A将调用 fizz() 来判断是否能被 3 整除，如果可以，则输出 fizz。</code><br><code>线程B将调用 buzz() 来判断是否能被 5 整除，如果可以，则输出 buzz。</code><br><code>线程C将调用 fizzbuzz() 来判断是否同时能被 3 和 5 整除，如果可以，则输出 fizzbuzz。</code><br><code>线程D将调用 number() 来实现输出既不能被 3 整除也不能被 5 整除的数字。</code></p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>一个简单的同步问题</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FizzBuzz</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> n;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">FizzBuzz</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.n = n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">iCount</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printFizz.run() outputs &quot;fizz&quot;.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">fizz</span><span class="params">(Runnable printFizz)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">3</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printFizz.run();</span><br><span class="line">            iCount++;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printBuzz.run() outputs &quot;buzz&quot;.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">buzz</span><span class="params">(Runnable printBuzz)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">5</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printBuzz.run();</span><br><span class="line">            iCount++;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printFizzBuzz.run() outputs &quot;fizzbuzz&quot;.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">fizzbuzz</span><span class="params">(Runnable printFizzBuzz)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">3</span> != <span class="number">0</span> || iCount % <span class="number">5</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printFizzBuzz.run();</span><br><span class="line">            iCount++;</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// printNumber.accept(x) outputs &quot;x&quot;, where x is an integer.</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">number</span><span class="params">(IntConsumer printNumber)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="keyword">while</span> (iCount &lt;= n) &#123;</span><br><span class="line">            <span class="keyword">while</span> (iCount % <span class="number">3</span> == <span class="number">0</span> || iCount % <span class="number">5</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                wait();</span><br><span class="line">                <span class="keyword">if</span> (iCount &gt; n) <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            printNumber.accept(iCount++);</span><br><span class="line">            notifyAll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;肺炎赋闲在家，水一些简单题打发时间吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;【LeetCode】1195-交替打印字符串&quot;&gt;&lt;a href=&quot;#【LeetCode】1195-交替打印字符串&quot; class=&quot;headerlink&quot; title=&quot;【LeetCode】1195. 交替打印字符串&quot;&gt;&lt;/a&gt;【LeetCode】1195. 交替打印字符串&lt;/h3&gt;&lt;p&gt;编写一个可以从 1 到 n 输出代表这个数字的字符串的程序，但是：&lt;/p&gt;
-&lt;p&gt;如果这个数字可以被 3 整除，输出 “fizz”。&lt;br&gt;如果这个数字可以被 5 整除，输出 “buzz”。&lt;br&gt;如果这个数字可以同时被 3 和 5 整除，输出 “fizzbuzz”。&lt;br&gt;例如，当 n &amp;#x3D; 15，输出： 1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fizzbuzz。&lt;/p&gt;</summary>
     
     
     
